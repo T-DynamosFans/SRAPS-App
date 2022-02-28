@@ -1,0 +1,39 @@
+MDScreen:
+	name : "Mscreen"
+	MDBottomNavigation:
+		panel_color:app.colorHex("#F1F5FB")
+		selected_color_background:app.colorHex("#011D35")
+		MDBottomNavigationItem:
+			md_bg_color:0,0,0,1
+			name: "screen1"
+			icon:"home"
+			icon_color:app.colorHex("#011D35")
+			text:"Home"
+			font_name:"Poppins-Bold.ttf"
+			font_size:"20sp"
+			MDCard:
+				radius:60
+				height:20
+				elevation:10
+				padding: 16
+				size_hint: None, None
+				size: "360dp", "400dp"
+				style:'filled'
+				md_bg_color:app.colorHex("#2196F3")
+			MDTextFieldRound:
+				pos_hint:{"center_x":0.5,"center_y":0.80}
+				line_width:10
+				normal_color:app.colorHex("EEF3FB")
+				color_active:app.colorHex("EEF3FB")
+				icon_left:"magnify"
+				hint_text:'Search Here'
+				radius:10
+				size_hint_y :0.07
+				size_hint_x : 0.8
+		MDBottomNavigationItem:
+			name: "screen2"
+			icon:"notebook-multiple"
+			icon_color:app.colorHex("#011D35")
+			text:"Work"
+			font_name:"Poppins-Bold.ttf"
+			font_size:"20sp"

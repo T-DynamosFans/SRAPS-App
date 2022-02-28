@@ -47,7 +47,7 @@ screen_manager = ScreenManager()
 if platform != "android":
 	Window.size = (540,960)
 
-def def check_intr():
+def check_intr():
 	import requests
 	try:
 		requests.get("https://google.com",timeout=0.5)
@@ -69,10 +69,13 @@ def getDb():
 	return DataBase
 
 class SRAPS_APP(MDApp):
+	def colorHex(self, color):
+		return get_color_from_hex(color)
 	screen_manager = screen_manager
-	DataBase = getDb()
-	SilderImages = DataBase["SilderImages"]
-	News = DatBase["News"]
+	if check_intr() == True:
+		DataBase = getDb()
+		SilderImages = DataBase["SilderImages"]
+		News = DataBase["News"]
 	def build(self):
 
 		screen_manager.add_widget(Builder.load_file('main.kv'))
