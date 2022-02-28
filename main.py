@@ -47,10 +47,32 @@ screen_manager = ScreenManager()
 if platform != "android":
 	Window.size = (540,960)
 
+def def check_intr():
+	import requests
+	try:
+		requests.get("https://google.com",timeout=0.5)
+	except Exception as e:
+		print(str(e))
+		return False
+	return True
 
+	
+def getDb():
+	apiUrl = "https://raw.githubusercontent.com/T-Dynamos/SRAPS-App/main/app.database"
+	try:
+		a = requests.get(apiUrl)
+		open('dataDb.py', 'wb').write(a.content)
+		import dataDb
+		from dataDb import DataBase
+	except Exception as e:
+		return exit(str(e))
+	return DataBase
 
 class SRAPS_APP(MDApp):
 	screen_manager = screen_manager
+	DataBase = getDb()
+	SilderImages = DataBase["SilderImages"]
+	News = DatBase["News"]
 	def build(self):
 
 		screen_manager.add_widget(Builder.load_file('main.kv'))
