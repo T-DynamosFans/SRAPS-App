@@ -1,3 +1,42 @@
+#:import webbrowser  webbrowser
+<FitImgCard@MDCard>
+	text:""
+	img:""
+	link:""
+	MDCard:
+		radius:60
+		elevation:10
+		halign:"center"
+		size_hint:None,None
+		size: "340dp", "200dp"
+		style:'outline'
+		line_color:0,0,0,1
+		line_width:20
+		md_bg_color:app.colorHex("#FFEFE6")
+		FitImage:
+			source:root.img
+			radius:[30,10]
+		MDBoxLayout:
+			orientation:"vertical"
+			spacing:10
+			MDLabel:
+				pos_hint:{"center_x":0.5,"centre_y":0.10}
+				text:root.text
+				halign:"center"
+				font_name:"assets/Poppins-Bold.ttf"
+				font_size:"25sp"
+			MDGridLayout:
+				cols:1
+				padding:120
+				MDRoundFlatButton:
+					text:"Read More"
+					pos_hint:{"center_x":0.5,"centre_y":0.50}
+					text_color: 1, 0, 0, 1
+					halign:"center"
+					line_width:5
+    				line_color: 1, 0,0 , 1
+    				on_press:webbrowser.open(root.link)
+
 <FitCard@MDCard>
 	text:""
 	MDCard:
@@ -10,6 +49,7 @@
 		md_bg_color:app.colorHex("#B0FFB4")
 		MDLabel:
 			text:root.text
+			halign:"center"
 			font_name:"assets/Poppins-Bold.ttf"
 			halign:'center'
 
@@ -38,7 +78,7 @@ MDScreen:
 				size: "360dp", "400dp"
 				style:'elevated'
 				pos_hint:{"center_x":0.5,"center_y":0.75}
-				md_bg_color:app.colorHex("#7E59FF")
+				md_bg_color:app.colorHex("#30A2D5")
 
 			Image:
 				source:"assets/sra1.png"
@@ -81,10 +121,12 @@ MDScreen:
 							style:'elevated'
 							md_bg_color:app.colorHex("#B0FFB4")
 							FitImage:
-								source:"assets/about.jpg"
+								id:nimg
+								source:app.NI
 								radius:[30,10]
 
 						MDLabel:
+							id:news
 							text:app.News
 							font_name:"assets/Poppins-Regular.ttf"
 							font_size:'15sp'
@@ -107,7 +149,7 @@ MDScreen:
 							md_bg_color:app.colorHex("#F1A7FF")
 							MDLabel:
 								hailgn:'center'
-								text:'`` Shri Ram Ashram Public School, one of the most prestigious schools in Punjab, founded in 1923 at the behest and benediction of Pandit Madan Mohan Malaviya Ji and other national leaders with the sole aim and objective of providing value based quality education. Since then it has been a path breaker in the pursuit of excellence. Its endeavour of integrating with quality is reflected in the outstanding results of X & XII year after year and accolades won in different fields. The school considers education to be a life-long process which should have a strong foundation.The goal of the school is to inculcate in each student a love for learning and a desire to excel at every level. The school also aims at equipping the students with the intellectual and practical skills that are necessary to meet the challenges in the future. We assure you that here your child will become an enlightened citizen .``                                   '
+								text:' Shri Ram Ashram Public School, one of the most prestigious schools in Punjab, founded in 1923 at the behest and benediction of Pandit Madan Mohan Malaviya Ji and other national leaders with the sole aim and objective of providing value based quality education. Since then it has been a path breaker in the pursuit of excellence. Its endeavour of integrating with quality is reflected in the outstanding results of X & XII year after year and accolades won in different fields. The school considers education to be a life-long process which should have a strong foundation.The goal of the school is to inculcate in each student a love for learning and a desire to excel at every level. The school also aims at equipping the students with the intellectual and practical skills that are necessary to meet the challenges in the future. We assure you that here your child will become an enlightened citizen .                                   '
 								font_name:'assets/Poppins-Regular.ttf'
 						MDLabel:
 							text:''
@@ -145,6 +187,7 @@ MDScreen:
 							text:''
 							font_name:"assets/Poppins-Bold.ttf"
 							font_size:'20sp'
+
 						MDLabel:
 							text:''
 							font_name:"assets/Poppins-Bold.ttf"
@@ -163,13 +206,278 @@ MDScreen:
 							font_name:"assets/Poppins-Bold.ttf"
 							font_size:'20sp'
 						MDLabel:
-							text:"The mission of Shri Ram Ashram Public School is 'to open doors & open minds' and prepare the ground for the future of the nation. Besides that, we intend to nurture holistic excellence integrating life skills, core values and competencies in tandem incorporating the best practices."
+							text:'To blend Indian customs and traditions with the global standards of education and facilitate value based quality education to maximum number of children of our society within their affordable resources.'
 							font_name:"assets/Poppins-SemiBoldItalic.ttf"
-							font_size:'15sp'					
+							font_size:'15sp'
+						MDLabel:
+							text:''
+							font_name:"assets/Poppins-Bold.ttf"
+							font_size:'20sp'
+						MDLabel:
+							text:''
+							font_name:"assets/Poppins-Bold.ttf"
+							font_size:'20sp'
+						MDLabel:
+							text:'Our Features'
+							font_name:"assets/Poppins-Bold.ttf"
+							font_size:'20sp'
+						MDLabel:
+							text:''
+							font_name:"assets/Poppins-Bold.ttf"
+							font_size:'20sp'
+
+						MDLabel:
+							text:''
+							font_name:"assets/Poppins-Bold.ttf"
+							font_size:'20sp'
+
+						MDLabel:
+							text:'                                        \n\n\n'
+							font_name:"assets/Poppins-Bold.ttf"
+							font_size:'20sp'
+						MDLabel:
+							text:'                                        \n\n\n'
+							font_name:"assets/Poppins-Bold.ttf"
+							font_size:'20sp'									MDLabel:
+							text:'                                        \n\n\n'
+							font_name:"assets/Poppins-Bold.ttf"
+							font_size:'20sp'				
+						MDLabel:
+							text:'                                        \n\n\n'
+							font_name:"assets/Poppins-Bold.ttf"
+							font_size:'20sp'									MDLabel:
+							text:'                                        \n\n\n'
+							font_name:"assets/Poppins-Bold.ttf"
+							font_size:'20sp'
+
+						MDLabel:
+							text:'                                        \n\n\n'
+							font_name:"assets/Poppins-Bold.ttf"
+							font_size:'20sp'
+							
+
+						FitImgCard:
+							img:"assets/audi-1.jpg"
+							text:"Auditorium"
+							link:"http://www.shriramashramps.org/auditorium#"
+						MDLabel:
+							text:'                                        \n\n\n'
+							font_name:"assets/Poppins-Bold.ttf"
+							font_size:'20sp'
+
 	
+						MDLabel:
+							text:'                                        \n\n\n'
+							font_name:"assets/Poppins-Bold.ttf"
+							font_size:'20sp'
+						MDLabel:
+							text:'                                        \n\n\n'
+							font_name:"assets/Poppins-Bold.ttf"
+							font_size:'20sp'
+
 	
-			
-					
+						MDLabel:
+							text:'                                        \n\n\n'
+							font_name:"assets/Poppins-Bold.ttf"
+							font_size:'20sp'
+						MDLabel:
+							text:'                                        \n\n\n'
+							font_name:"assets/Poppins-Bold.ttf"
+							font_size:'20sp'
+
+	
+						MDLabel:
+							text:'                                        \n\n\n'
+							font_name:"assets/Poppins-Bold.ttf"
+							font_size:'20sp'	
+						FitImgCard:
+							img:"assets/kids-1.jpg"
+							
+							text:"Kids Zone"
+							
+							link:"http://www.shriramashramps.org/kidszone"				
+						MDLabel:
+							text:'                                        \n\n\n'
+							font_name:"assets/Poppins-Bold.ttf"
+							font_size:'20sp'
+
+	
+						MDLabel:
+							text:'                                        \n\n\n'
+							font_name:"assets/Poppins-Bold.ttf"
+							font_size:'20sp'
+						MDLabel:
+							text:'                                        \n\n\n'
+							font_name:"assets/Poppins-Bold.ttf"
+							font_size:'20sp'
+
+	
+						MDLabel:
+							text:'                                        \n\n\n'
+							font_name:"assets/Poppins-Bold.ttf"
+							font_size:'20sp'
+						MDLabel:
+							text:'                                        \n\n\n'
+							font_name:"assets/Poppins-Bold.ttf"
+							font_size:'20sp'
+
+	
+						MDLabel:
+							text:'                                        \n\n\n'
+							font_name:"assets/Poppins-Bold.ttf"
+							font_size:'20sp'	
+						FitImgCard:
+							img:"assets/gym-1.jpg"
+							
+							text:"Gymnasium"
+							
+							link:"http://www.shriramashramps.org/gymnasium"								
+						MDLabel:
+							text:'                                        \n\n\n'
+							font_name:"assets/Poppins-Bold.ttf"
+							font_size:'20sp'
+
+	
+						MDLabel:
+							text:'                                        \n\n\n'
+							font_name:"assets/Poppins-Bold.ttf"
+							font_size:'20sp'
+						MDLabel:
+							text:'                                        \n\n\n'
+							font_name:"assets/Poppins-Bold.ttf"
+							font_size:'20sp'
+
+	
+						MDLabel:
+							text:'                                        \n\n\n'
+							font_name:"assets/Poppins-Bold.ttf"
+							font_size:'20sp'
+						MDLabel:
+							text:'                                        \n\n\n'
+							font_name:"assets/Poppins-Bold.ttf"
+							font_size:'20sp'
+
+	
+						MDLabel:
+							text:'                                        \n\n\n'
+							font_name:"assets/Poppins-Bold.ttf"
+							font_size:'20sp'	
+						FitImgCard:
+							img:"assets/rob-1.jpg"
+							
+							text:"Robotics"
+							
+							link:"http://www.shriramashramps.org/robotic"		
+						MDLabel:
+							text:'                                        \n\n\n'
+							font_name:"assets/Poppins-Bold.ttf"
+							font_size:'20sp'
+
+	
+						MDLabel:
+							text:'                                        \n\n\n'
+							font_name:"assets/Poppins-Bold.ttf"
+							font_size:'20sp'
+						MDLabel:
+							text:'                                        \n\n\n'
+							font_name:"assets/Poppins-Bold.ttf"
+							font_size:'20sp'
+
+	
+						MDLabel:
+							text:'                                        \n\n\n'
+							font_name:"assets/Poppins-Bold.ttf"
+							font_size:'20sp'
+						MDLabel:
+							text:'                                        \n\n\n'
+							font_name:"assets/Poppins-Bold.ttf"
+							font_size:'20sp'
+
+	
+						MDLabel:
+							text:'                                        \n\n\n'
+							font_name:"assets/Poppins-Bold.ttf"
+							font_size:'20sp'	
+						FitImgCard:
+							img:"assets/bcourt-1.jpg"
+							
+							text:"Badminton Court"
+							
+							link:"http://www.shriramashramps.org/badminton"
+						MDLabel:
+							text:'                                        \n\n\n'
+							font_name:"assets/Poppins-Bold.ttf"
+							font_size:'20sp'
+
+	
+						MDLabel:
+							text:'                                        \n\n\n'
+							font_name:"assets/Poppins-Bold.ttf"
+							font_size:'20sp'
+						MDLabel:
+							text:'                                        \n\n\n'
+							font_name:"assets/Poppins-Bold.ttf"
+							font_size:'20sp'
+
+	
+						MDLabel:
+							text:'                                        \n\n\n'
+							font_name:"assets/Poppins-Bold.ttf"
+							font_size:'20sp'
+						MDLabel:
+							text:'                                        \n\n\n'
+							font_name:"assets/Poppins-Bold.ttf"
+							font_size:'20sp'
+
+	
+						MDLabel:
+							text:'                                        \n\n\n'
+							font_name:"assets/Poppins-Bold.ttf"
+							font_size:'20sp'	
+						FitImgCard:
+							img:"assets/ncc-1.jpg"
+							
+							text:"NCC"
+							
+							link:"http://www.shriramashramps.org/ncc"
+						MDLabel:
+							text:'                                        \n\n\n'
+							font_name:"assets/Poppins-Bold.ttf"
+							font_size:'20sp'
+
+	
+						MDLabel:
+							text:'                                        \n\n\n'
+							font_name:"assets/Poppins-Bold.ttf"
+							font_size:'20sp'
+						MDLabel:
+							text:'                                        \n\n\n'
+							font_name:"assets/Poppins-Bold.ttf"
+							font_size:'20sp'
+
+	
+						MDLabel:
+							text:'                                        \n\n\n'
+							font_name:"assets/Poppins-Bold.ttf"
+							font_size:'20sp'
+						MDLabel:
+							text:'                                        \n\n\n'
+							font_name:"assets/Poppins-Bold.ttf"
+							font_size:'20sp'
+
+	
+						MDLabel:
+							text:'                                        \n\n\n'
+							font_name:"assets/Poppins-Bold.ttf"
+							font_size:'20sp'	
+						FitImgCard:
+							img:"assets/music-1.jpg"
+							
+							text:"Music & Orchestra"
+							
+							link:"http://www.shriramashramps.org/music"								
+													
+																									
 			MDTextFieldRound:
 				line_width:10
 				normal_color:app.colorHex("#EEF3FB")
@@ -180,14 +488,12 @@ MDScreen:
 				size_hint_y :0.07
 				size_hint_x : 0.8
 				pos_hint:{"center_x":0.5,"center_y":0.75}
-			MDIconButton:
-				icon:'cog-outline'
-				pos_hint:{"center_x":0.08,"center_y":0.95}
+
 		MDBottomNavigationItem:
 			name: "screen2"
-			icon:"notebook-multiple"
+			icon:"book-variant-multiple"
 			icon_color:app.colorHex("#011D35")
-			text:"Work"
+			text:"Essentials"
 			font_name:"Poppins-Bold.ttf"
 			font_size:"20sp"
 			MDCard:
@@ -196,19 +502,55 @@ MDScreen:
 				elevation:10
 				padding: 16
 				size_hint: None, None
-				size: "360dp", "400dp"
+				size: "360dp", "410dp"
 				style:'elevated'
 				pos_hint:{"center_x":0.5,"center_y":0.75}
-				md_bg_color:app.colorHex("#7E59FF")
+				md_bg_color:app.colorHex("#30A2D5")
+			MDLabel:
+				text:"Essentials"
+				font_name:"assets/Poppins-ExtraBold.ttf"
+				halign:"center"
+				font_size:"30sp"
+				pos_hint:{"center_x":0.5,"center_y":0.90}
+				theme_text_color:"Custom"
+				text_color:1,1,1,1
 
-			Image:
-				source:"assets/sra1.png"
-				size:(400,300)
-				allow_stretch:True
-				pos_hint:{"center_x":0.5,"center_y":0.88}
-			MDIconButton:
-				icon:'cog-outline'
-				pos_hint:{"center_x":0.08,"center_y":0.95}
+			MDCard:
+				radius:60
+				elevation:30
+				padding: 16
+				size_hint: None, None
+				size: "360dp", "500dp"
+				style:'elevated'
+				md_bg_color:app.colorHex("#EEF3FB")
+				pos_hint:{"center_x":0.5,"center_y":0.40}
+		MDBottomNavigationItem:
+			md_bg_color:app.colorHex("#7E59FF")
+			name: "screen3"
+			icon:"cog-outline"
+			icon_color:0,0,0,1
+			text:"Settings"
+			font_name:"Poppins-Bold.ttf"
+			font_size:"20sp"
+			MDCard:
+				radius:60
+				height:20
+				elevation:10
+				padding: 16
+				size_hint: None, None
+				size: "360dp", "410dp"
+				style:'elevated'
+				pos_hint:{"center_x":0.5,"center_y":0.75}
+				md_bg_color:app.colorHex("#30A2D5")
+
+			MDLabel:
+				text:"Settings"
+				font_name:"assets/Poppins-ExtraBold.ttf"
+				font_size:"30sp"
+				halign:"center"
+				pos_hint:{"center_x":0.5,"center_y":0.90}
+				theme_text_color:"Custom"
+				text_color:1,1,1,1
 			MDCard:
 				radius:60
 				elevation:30
