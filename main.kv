@@ -53,8 +53,24 @@
 			font_name:"assets/Poppins-Bold.ttf"
 			halign:'center'
 
+#:import Teachers teach.Teachers
+<Content>:
+    orientation: "vertical"
+    padding: dp(10)
+    spacing: dp(10)
+    height:(12)
+    adaptive_height: True
+	MDDataTable:
+		size_hint:(0.99, 0.99)
+		use_pagination:True
+		check:True
+		column_data:[("No.", dp(30)),("Name", dp(30)),("Designation", dp(60)),("Qualification", dp(30))]
+		row_data:Teachers
+<Card>:
 
+	elevation: 10
 
+	radius: [36, ]
 MDScreen:
 	name : "Mscreen"
 	md_bg_color:app.colorHex("#7E59FF")
@@ -79,14 +95,21 @@ MDScreen:
 				style:'elevated'
 				pos_hint:{"center_x":0.5,"center_y":0.75}
 				md_bg_color:app.colorHex("#30A2D5")
-
+				
 			Image:
-				source:"assets/sra1.png"
-				size:(400,300)
+				source:"assets/co.png"
 				allow_stretch:True
-				pos_hint:{"center_x":0.5,"center_y":0.88}
+				pos_hint:{"center_x":0.91,"center_y":0.82}
+				size_hint_x : 0.4
+				size_hint_y : 0.4		
+			Image:
+				source:"assets/sa.png"
+				allow_stretch:True
+				pos_hint:{"center_x":0.085,"center_y":0.79}
+				size_hint_x : 0.5
+				size_hint_y : 0.5												
 			MDCard:
-				radius:60
+				radius:70
 				elevation:30
 				padding: 16
 				size_hint: None, None
@@ -99,7 +122,7 @@ MDScreen:
 					MDGridLayout:
 						cols:1
 						adaptive_height:True
-						spacing:100
+						spacing:app.spacing
 						padding:10
 						MDLabel:
 							text:''
@@ -476,18 +499,12 @@ MDScreen:
 							text:"Music & Orchestra"
 							
 							link:"http://www.shriramashramps.org/music"								
-													
-																									
-			MDTextFieldRound:
-				line_width:10
-				normal_color:app.colorHex("#EEF3FB")
-				color_active:app.colorHex("#EEF3FB")
-				icon_left:"magnify"
-				hint_text:'Search Here'
-				radius:10
-				size_hint_y :0.07
-				size_hint_x : 0.8
-				pos_hint:{"center_x":0.5,"center_y":0.75}
+			Image:
+				source : "assets/logo.png"
+				pos_hint : {"center_x":0.5,"center_y":0.83}
+				allow_stretch:True
+				size_hint_x : 0.6
+				size_hint_y : 0.6				
 
 		MDBottomNavigationItem:
 			name: "screen2"
@@ -496,16 +513,40 @@ MDScreen:
 			text:"Essentials"
 			font_name:"Poppins-Bold.ttf"
 			font_size:"20sp"
+
 			MDCard:
 				radius:60
+				elevation:0
+				padding:60
+				size_hint: None, None
+				size: "340dp", "500dp"
+				style:'elevated'
+				md_bg_color:app.colorHex("#EEF3FB")
+				pos_hint:{"center_x":0.5,"center_y":0.37}			
+			MDCard:
+				radius:80
 				height:20
-				elevation:10
+				elevation:0
 				padding: 16
 				size_hint: None, None
-				size: "360dp", "410dp"
-				style:'elevated'
+				size: "360dp", "510dp"
+				style:'filled'
 				pos_hint:{"center_x":0.5,"center_y":0.75}
 				md_bg_color:app.colorHex("#30A2D5")
+
+
+
+			MDCard:
+				radius:[0,0,60,60]
+				pos_hint:{"center_x":0.5,"center_y":0.999}
+				elevation:0
+				padding: 16				
+				size_hint: None, None
+				size: "320dp", "970dp"
+				style:'filled'
+				halign:"center"
+				md_bg_color:app.colorHex("#30A2D5")
+					
 			MDLabel:
 				text:"Essentials"
 				font_name:"assets/Poppins-ExtraBold.ttf"
@@ -515,15 +556,102 @@ MDScreen:
 				theme_text_color:"Custom"
 				text_color:1,1,1,1
 
-			MDCard:
-				radius:60
-				elevation:30
-				padding: 16
-				size_hint: None, None
-				size: "360dp", "500dp"
-				style:'elevated'
-				md_bg_color:app.colorHex("#EEF3FB")
-				pos_hint:{"center_x":0.5,"center_y":0.40}
+			MDRoundFlatIconButton:
+				text : "School Faculty"
+				pos_hint : {"center_x":0.5,"center_y":0.75}				
+				icon : "human-queue"
+				line_width :2
+				font_name : "assets/Poppins-Regular.ttf"
+				icon_color:1,1,1,1
+				theme_text_color:"Custom"
+				text_color:1,1,1,1
+				line_color:1,1,1,1
+				font_size : "20sp"
+				on_press : app.table()
+				size_hint_x : 0.7
+				size_hint_y : 0.08
+				line_width :3
+			MDRoundFlatIconButton:
+				text : "School Timmings"
+				pos_hint : {"center_x":0.5,"center_y":0.65}
+				icon : "timetable"
+				line_width :2
+				font_name : "assets/Poppins-Regular.ttf"
+				icon_color:1,1,1,1
+				theme_text_color:"Custom"
+				text_color:1,1,1,1
+				line_color:1,1,1,1				
+				font_size : "20sp"
+				on_press : app.table()
+				size_hint_x : 0.7
+				size_hint_y : 0.08
+				line_width :3						
+			MDRoundFlatIconButton:
+				text : "School Fees"
+				pos_hint : {"center_x":0.5,"center_y":0.55}	
+				icon : "currency-inr"
+				line_width :2
+				font_name : "assets/Poppins-Regular.ttf"
+				icon_color:1,1,1,1
+				theme_text_color:"Custom"
+				text_color:1,1,1,1
+				line_color:1,1,1,1				
+				font_size : "20sp"
+				on_press : app.table()
+				size_hint_x : 0.7
+				size_hint_y : 0.08
+				line_width :3
+			MDRoundFlatIconButton:
+				text : "Admission Process"
+				pos_hint : {"center_x":0.5,"center_y":0.45}				
+				icon : "school"
+				line_width :2
+				font_name : "assets/Poppins-Regular.ttf"
+				icon_color:1,1,1,1
+				theme_text_color:"Custom"
+				text_color:1,1,1,1
+				line_color:1,1,1,1				
+				font_size : "20sp"
+				on_press : app.table()
+				size_hint_x : 0.7
+				size_hint_y : 0.08
+				line_width :3						
+			MDRoundFlatIconButton:
+				text : "Student Strength"
+				pos_hint : {"center_x":0.5,"center_y":0.35}				
+				icon : "human-capacity-increase"
+				line_width :2
+				font_name : "assets/Poppins-Regular.ttf"
+				icon_color:1,1,1,1
+				theme_text_color:"Custom"
+				text_color:1,1,1,1
+				line_color:1,1,1,1				
+				font_size : "20sp"
+				on_press : app.table()
+				size_hint_x : 0.7
+				size_hint_y : 0.08
+				line_width :3						
+			MDRoundFlatIconButton:
+				text : "Result"
+				pos_hint : {"center_x":0.5,"center_y":0.25}				
+				icon : "notebook"
+				line_width :2
+				font_name : "assets/Poppins-Regular.ttf"
+				icon_color:1,1,1,1
+				theme_text_color:"Custom"
+				text_color:1,1,1,1
+				line_color:1,1,1,1				
+				font_size : "20sp"
+				on_press : app.table()
+				size_hint_x : 0.7
+				size_hint_y : 0.08
+				line_width :3
+			Image:
+				source : "assets/book.png"
+				pos_hint : {"center_x":0.5,"center_y":0.08}
+				allow_stretch:True
+				size_hint_x : 0.2
+				size_hint_y : 0.2																
 		MDBottomNavigationItem:
 			md_bg_color:app.colorHex("#7E59FF")
 			name: "screen3"
@@ -559,4 +687,6 @@ MDScreen:
 				size: "360dp", "500dp"
 				style:'elevated'
 				md_bg_color:app.colorHex("#EEF3FB")
-				pos_hint:{"center_x":0.5,"center_y":0.40}
+				pos_hint:{"center_x":0.5,"center_y":0.37}
+
+						
