@@ -2,7 +2,7 @@
   <img src="img/main.png" width="400px"/><br/>
   SRAPS APP
 </h1>
----
+
 <p align="center">SRAPS App is a essential app for every <b>Ashramite</b> . Its available for android Written in Python3 (kivy Framework)
 </p>
 <p align="center">
