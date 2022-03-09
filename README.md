@@ -7,8 +7,7 @@
 </p>
 <p align="center">
 <a href="https://github.com/T-Dynamos"><img title="Version" src="https://forthebadge.com/images/badges/made-with-python.svg"></a>
-<a href="https://github.com/T-Dynamos"><img title="Version" src="https://forthebadge.com/images/badges/sraps-app-app.svg"></a>
-<a href="https://github.com/T-Dynamos"><img title="Version" src="https://forthebadge.com/images/badges/maintained-✓-yes.svg"></a>
+<a href="https://github.com/T-Dynamos"><img title="Version" src="https://forthebadge.com/images/badges/check-it-out.svg"></a>
 <a href="https://github.com/T-Dynamos"><img title="Version" src="https://forthebadge.com/images/badges/built-with-love.svg"></a>
 </p>
 <p align="center">
