@@ -6,7 +6,7 @@
 <p align="center">SRAPS App is a essential app for every <b>Ashramite</b> . Its available for android Written in Python3 (kivy Framework)
 </p>
 <p align="center">
-<a href="https://github.com/T-Dynamos"><img title="Version" src="https://forthebadge.com/images/badges/made-in-python.svg"></a>
+<a href="https://github.com/T-Dynamos"><img title="Version" src="https://forthebadge.com/images/badges/made-with-python.svg"></a>
 <a href="https://github.com/T-Dynamos"><img title="Version" src="https://forthebadge.com/images/badges/sraps-app.svg"></a>
 <a href="https://github.com/T-Dynamos"><img title="Version" src="https://forthebadge.com/images/badges/maintained-yes.svg"></a>
 <a href="https://github.com/T-Dynamos"><img title="Version" src="https://forthebadge.com/images/badges/built-with-love.svg"></a>
