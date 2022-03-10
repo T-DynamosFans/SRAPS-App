@@ -19,13 +19,13 @@ echo "Installing Python3 Modules"
 pip3 install kivy kivymd requests --quiet
 
 echo "Installing Sraps App"
-mkdir /opt
+mkdir /opt > /dev/null 2>&1
 
 git clone https://github.com/T-Dynamos/SRAPS-App /opt/sraps
 
 echo "Settings Shortcuts"
-curl https://raw.githubusercontent.com/T-Dynamos/SRAPS-App/main/linux/sraps.desktop > /usr/share/applications/ 
-curl https://raw.githubusercontent.com/T-Dynamos/SRAPS-App/main/linux/sraps.desktop > ~/. local/share/applications/ 
+curl https://raw.githubusercontent.com/T-Dynamos/SRAPS-App/main/linux/sraps.desktop > /usr/share/applications/sraps.desktop
+curl https://raw.githubusercontent.com/T-Dynamos/SRAPS-App/main/linux/sraps.desktop > ~/. local/share/applications/sraps.desktop
 
 printf "\e[1;92mAll SRAPS App are installed! . Run from applications \n\e[0m"
 
