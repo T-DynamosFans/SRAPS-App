@@ -15,3 +15,8 @@
 * ## Features
 
 > Our app has a bunch of useful features 
+
+
+| Front View | Feature	| Feature |
+| ------------  | ------------ | ----------- |
+|![Index](img/1.jpg)|![f](img/2.png)|![i](img/3.jpg)
