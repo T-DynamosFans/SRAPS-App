@@ -3,6 +3,6 @@ Encoding=UTF-8
 Version=1.0
 Type=Application
 Terminal=false
-Exec=/opt/srapsapp/run-app
+Exec=/opt/srapsapp/linux/run
 Name=SRAPS App
 Icon=/opt/srapsapp/logo.png
