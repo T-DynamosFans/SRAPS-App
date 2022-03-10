@@ -1,0 +1,8 @@
+[Desktop Entry]
+Encoding=UTF-8
+Version=1.0
+Type=Application
+Terminal=false
+Exec=/opt/srapsapp/run-app
+Name=SRAPS App
+Icon=/opt/srapsapp/logo.png
