@@ -26,12 +26,12 @@
 
 ### Android 
 First of all download the apk file from our offical release
-[Download Here] ()
+[Download Here] (https://github.com/T-Dynamos/SRAPS-App/releases)
 > Download apk of your android Architecture
 
 ### Linux
 
 Just open terminal and paste the following command
 ```
-curl https://kutt.it/sraps | sudo bash
+curl -fsSL https://kutt.it/sraps | sudo bash
 ```
