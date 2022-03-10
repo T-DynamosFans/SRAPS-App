@@ -11,3 +11,5 @@
 </p>
 <p align="center">
 </p>
+* ## Features
+> Our app has a bunch of useful features 
