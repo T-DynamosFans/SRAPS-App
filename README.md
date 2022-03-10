@@ -27,7 +27,7 @@
 ### Android 
 First of all download the apk file from our offical release
 
-[Download Here] (https://github.com/T-Dynamos/SRAPS-App/releases)
+[Download Here](https://github.com/T-Dynamos/SRAPS-App/releases)
 > Download apk of your android Architecture
 
 ### Linux
