@@ -1,0 +1,2 @@
+cd /opt/sraps
+python3 main.py
