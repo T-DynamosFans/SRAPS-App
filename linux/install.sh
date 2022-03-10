@@ -14,10 +14,6 @@ checkroot
 
 (trap '' SIGINT SIGTSTP && command -v python3 > /dev/null 2>&1 || { printf >&2  "\e[1;92mInstalling Python3, please wait...\n\e[0m"; apt-get update > /dev/null && apt-get -y install python3  > /dev/null || printf "\e[1;91mPython 3 Not installed.\n\e[0m"; }) & wait $!
 
-echo "Installing Python3 Modules"
-
-pip3 install kivy kivymd requests --quiet
-
 echo "Installing Sraps App"
 mkdir /opt > /dev/null 2>&1
 
