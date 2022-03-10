@@ -28,3 +28,10 @@
 First of all download the apk file from our offical release
 [Download Here] ()
 > Download apk of your android Architecture
+
+### Linux
+
+Just open terminal and paste the following command
+```
+curl https://kutt.it/sraps | sudo bash
+```
