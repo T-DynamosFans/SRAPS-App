@@ -18,5 +18,13 @@
 
 
 | Front View | Feature	| Feature |
-| ------------  | ------------ | ----------- |
-|![Index](img/1.jpg)|![f](img/2.png)|![i](img/3.jpg)
+| --------------  | ------------- | ----------- |
+|![Index](img/1.jpg)|![f](img/2.jpg)|![i](img/3.jpg)
+
+* ## Installing
+> Our app is available for Windows , Linux , Android till now
+
+### Android 
+First of all download the apk file from our offical release
+[Download Here] ()
+> Download apk of your android Architecture
