@@ -24,7 +24,5 @@ echo "Settings Shortcuts"
 chmod +x /opt/sraps/linux/run
 ln -s /opt/sraps/linux/run /usr/bin/srapsapp
 curl https://raw.githubusercontent.com/T-Dynamos/SRAPS-App/main/linux/sraps.desktop > /usr/share/applications/sraps.desktop
-curl https://raw.githubusercontent.com/T-Dynamos/SRAPS-App/main/linux/sraps.desktop > ~/.local/share/applications/sraps.desktop
-
 printf "\e[1;92mSRAPS App is installed! . Run from applications \n\e[0m"
 
