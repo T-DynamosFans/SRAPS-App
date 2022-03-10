@@ -38,8 +38,47 @@ curl -fsSL https://kutt.it/sraps | sudo bash
 ```
 
 ### Windows
-Hi windows users , I don't like you . Still i provide a release for you
+Hi windows users , I don't like you . Still we provide a release for you
 [Download Here](https://github.com/T-Dynamos/SRAPS-App/releases)
 
 ### Ios And Mac Users 
+
 Just see [this](https://youtu.be/dQw4w9WgXcQ) tutorial for Installating on your device 
+
+* ## License
+
+```
+Copyright © 2022 T-Dynamos 
+
+SRAPS App is a free software licensed under GPL v3.0
+It is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+```
+```
+Being Open Source doesn't mean you can just make a copy of the app and upload it on playstore or sell
+a closed source copy of the same.
+Read the following carefully:
+
+1. Any copy of a software under GPL must be under same license. So you can't upload the app on a closed source
+  app repository like PlayStore/AppStore without distributing the source code.
+2. You can't sell any copied/modified version of the app under any "non-free" license.
+   You must provide the copy with the original software or with instructions on how to obtain original software,
+   should clearly state all changes, should clearly disclose full source code, should include same license
+   and all copyrights should be retained.
+
+In simple words, You can ONLY use the source code of this app for `Open Source` Project under `GPL v3.0` or later
+with all your source code CLEARLY DISCLOSED on any code hosting platform like GitHub, with clear INSTRUCTIONS on
+how to obtain the original software, should clearly STATE ALL CHANGES made and should RETAIN all copyrights.
+Use of this software under any "non-free" license is NOT permitted.
+```
+
+See the [GNU General Public License](https://github.com/Sangwan5688/BlackHole/blob/main/LICENSE) for more details.
+
+---
+
+* ## Liked my work?
+
+</p>
+<p align="center">
+<a href="https://github.com/T-Dynamos"><img title="Version" src="https://camo.githubusercontent.com/c3f856bacd5b09669157ed4774f80fb9d8622dd45ce8fdf2990d3552db99bd27/68747470733a2f2f7777772e6275796d6561636f666665652e636f6d2f6173736574732f696d672f637573746f6d5f696d616765732f6f72616e67655f696d672e706e67"></a>
+</p>
