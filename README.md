@@ -36,3 +36,10 @@ Just open terminal and paste the following command
 ```
 curl -fsSL https://kutt.it/sraps | sudo bash
 ```
+
+### Windows
+Hi windows users , I don't like you . Still i provide a release for you
+[Download Here](https://github.com/T-Dynamos/SRAPS-App/releases)
+
+### Ios And Mac Users 
+Just see [this](https://youtu.be/dQw4w9WgXcQ) tutorial for Installating on your device 
