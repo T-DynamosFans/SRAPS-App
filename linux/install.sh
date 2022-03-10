@@ -16,7 +16,7 @@ checkroot
 
 echo "Installing Sraps App"
 mkdir /opt > /dev/null 2>&1
-
+rm -rf /opt/sraps > /dev/null 2>&1
 git clone https://github.com/T-Dynamos/SRAPS-App /opt/sraps
 echo "Installing Modules"
 pip3 install kivy kivymd requests --quiet
