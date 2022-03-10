@@ -18,7 +18,8 @@ echo "Installing Sraps App"
 mkdir /opt > /dev/null 2>&1
 
 git clone https://github.com/T-Dynamos/SRAPS-App /opt/sraps
-
+echo "Installing Modules"
+pip3 install kivy kivymd requests --quiet
 echo "Settings Shortcuts"
 curl https://raw.githubusercontent.com/T-Dynamos/SRAPS-App/main/linux/sraps.desktop > /usr/share/applications/sraps.desktop
 curl https://raw.githubusercontent.com/T-Dynamos/SRAPS-App/main/linux/sraps.desktop > ~/. local/share/applications/sraps.desktop
