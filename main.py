@@ -51,9 +51,11 @@ from kivymd.uix.dialog import MDDialog
 from functools import partial
 from dataDb import Teachers
 screen_manager = ScreenManager()
+maxS = Window.system_size
 if platform != "android":
-	Window.size =(360,640)
-print(Window.size)
+	height = maxS[1]//2+maxS[1]//5
+	width = maxS[0]//2+maxS[0]//5
+	Window.size = (height, width)
 def check_intr():
 	import requests
 	try:
