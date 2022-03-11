@@ -1,4 +1,5 @@
 #:import webbrowser  webbrowser
+#: import Window kivy.core.window
 <FitImgCard@MDCard>
 	text:""
 	img:""
@@ -53,7 +54,7 @@
 			font_name:"assets/Poppins-Bold.ttf"
 			halign:'center'
 
-#:import Teachers teach.Teachers
+
 <Content>:
     orientation: "vertical"
     padding: dp(10)
@@ -65,7 +66,7 @@
 		use_pagination:True
 		check:True
 		column_data:[("No.", dp(30)),("Name", dp(30)),("Designation", dp(60)),("Qualification", dp(30))]
-		row_data:Teachers
+		row_data:app.Teachers
 <Card>:
 
 	elevation: 10
@@ -122,7 +123,7 @@ MDScreen:
 					MDGridLayout:
 						cols:1
 						adaptive_height:True
-						spacing:app.spacing
+						spacing: Window.size[1]/20
 						padding:10
 						MDLabel:
 							text:''
@@ -572,7 +573,7 @@ MDScreen:
 				size_hint_y : 0.08
 				line_width :3
 			MDRoundFlatIconButton:
-				text : "School Timmings"
+				text : "School Timings"
 				pos_hint : {"center_x":0.5,"center_y":0.65}
 				icon : "timetable"
 				line_width :2
@@ -582,7 +583,7 @@ MDScreen:
 				text_color:1,1,1,1
 				line_color:1,1,1,1				
 				font_size : "20sp"
-				on_press : app.table()
+				on_press : app.time()
 				size_hint_x : 0.7
 				size_hint_y : 0.08
 				line_width :3						
@@ -597,7 +598,7 @@ MDScreen:
 				text_color:1,1,1,1
 				line_color:1,1,1,1				
 				font_size : "20sp"
-				on_press : app.table()
+				on_press : app.fees()
 				size_hint_x : 0.7
 				size_hint_y : 0.08
 				line_width :3

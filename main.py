@@ -49,7 +49,7 @@ import time
 import _thread
 from kivymd.uix.dialog import MDDialog
 from functools import partial
-from teach import Teachers
+from dataDb import Teachers
 screen_manager = ScreenManager()
 if platform != "android":
 	Window.size =(360,640)
@@ -114,13 +114,89 @@ def show_message(Ok):
 			on_press=c)]
 		dialog.auto_dismiss=False
 		dialog.open()
+def show_timings():
 
+	a = """
+MDCard:
+	radius:[30]
+	size:(0.85,0.85)
+	elevation:50
+	ScrollView:
+		MDGridLayout:
+			cols:1
+			adaptive_height:True
+			spacing:app.spacing*3
+			orientation :"lr-tb"
 
+			MDLabel:
+				text:"Timings can be changed any time as the situation demands."
+				font_name:"assets/Poppins-Bold.ttf"
+				font_size:"15sp"
+			MDLabel:
+				text:"• Parents must ensure that their children reach at least 10 minutes before the gate is closed so that children are able to attend the morning assembly."
+				font_name:"assets/Poppins-Regular.ttf"
+			MDLabel:
+				text:"• First Bell will ring 5 minutes prior to the time mentioned above."
+				font_name:"assets/Poppins-Regular.ttf"
+			MDLabel:
+				text:"• In the morning no student will be allowed to enter the school after the second bell."
+				font_name:"assets/Poppins-Regular.ttf"
+			MDLabel:
+				text:"• The gate will remain closed during assembly. At the time of dispersal gates will open at the time of last bell."
+				font_name:"assets/Poppins-Regular.ttf"	
+			MDLabel:
+				text:"• For Primary Wing the gate will open only 5 minutes before dispersal time."
+				font_name:"assets/Poppins-Regular.ttf"
+		"""
+	modal = ModalView(
+
+	size_hint=(0.83, 0.7),
+
+	overlay_color=(0, 0, 0, 0),
+
+	)
+
+	modal.add_widget(Builder.load_string(a))
+
+	modal.open()	
+def show_fees():
+	card = MDCard(elevation=50,radius=[30,30,30,30],size=(0.83,0.7))
+	a = MDDataTable(
+	size=(0.8,0.8),
+	use_pagination=True,
+	column_data=[
+
+	("Sr.No.", dp(20)),
+
+	("Class", dp(20)),
+
+	("Monthly Fees", dp(20))],
+	row_data = (
+		["1","Newly Admit Fees","₹ 15395"],
+		["2","NUR - UKG ","₹ 3080"],
+		["3","I - V","₹ 3100"],
+		["4","VI - VIII","₹ 3235"],
+		["5","IX - X","₹ 3360"],
+		["6","XI - XII Science","₹ 3545"],
+		["7","XI - XII Commerce/Arts","₹ 3380"],
+		)
+	)
+	card.add_widget(a)
+	modal = ModalView(
+
+	size_hint=(0.83, 0.7),
+
+	overlay_color=(0, 0, 0, 0),
+
+	)
+
+	modal.add_widget(card)
+
+	modal.open()	
 def show_teachers(self):
-	card = MDCard(elevation=40, radius=[36,])
+	card = MDCard(elevation=50, radius=[30],size=(1,1))
 	f = MDDataTable(
-
-	elevation=40,
+	size=(0.8,0.8),
 	use_pagination=True,
 	column_data=[
 
@@ -131,12 +207,12 @@ def show_teachers(self):
 	("Designation", dp(20)),
 
 	("Qualification", dp(20))],
-	row_data = Teachers)
+	row_data = Teachers) 
 
 	card.add_widget(f)
 	modal = ModalView(
 
-	size_hint=(0.9, 0.9),
+	size_hint=(0.95, 0.95),
 
 	overlay_color=(0, 0, 0, 0),
 
@@ -158,11 +234,14 @@ def get_part_of_day(h):
 from datetime import datetime
 
 class SRAPS_APP(MDApp):
+	Teachers = Teachers
 	spacing = Window.size[1]//20
 	time = get_part_of_day(datetime.now().hour)
 	screen_manager = screen_manager
 	NI="assets/no-internet.png"
 	News="No Internet"
+	time = lambda self:show_timings()
+	fees = lambda self:show_fees()
 	def colorHex(self, color):
 		return get_color_from_hex(color)
 
