@@ -75,6 +75,7 @@
 MDScreen:
 	name : "Mscreen"
 	md_bg_color:app.colorHex("#7E59FF")
+	on_enter:app.wid()
 	MDBottomNavigation:
 		panel_color:app.colorHex("#F1F5FB")
 		selected_color_background:app.colorHex("#9DE6FF")
@@ -125,12 +126,12 @@ MDScreen:
 						adaptive_height:True
 						spacing: Window.size[1]/20
 						padding:10
+						id:fu
 						MDLabel:
 							text:''
 							font_name:"assets/Poppins-Bold.ttf"
 							font_size:'20sp'
-
-
+						
 
 						MDLabel:
 							text:'Latest News'

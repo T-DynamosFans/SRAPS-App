@@ -49,13 +49,18 @@ import time
 import _thread
 from kivymd.uix.dialog import MDDialog
 from functools import partial
-from dataDb import Teachers
+try:
+	from dataDb import Teachers
+except Exception:
+	Teachers=[]
+	pass
 screen_manager = ScreenManager()
 maxS = Window.system_size
 if platform != "android":
-	height = maxS[1]//2+maxS[1]//5
-	width = maxS[0]//2+maxS[0]//5
+	height = maxS[0]//2.5
+	width = maxS[1]//1.5
 	Window.size = (height, width)
+print(maxS)
 def check_intr():
 	import requests
 	try:
@@ -67,7 +72,7 @@ def check_intr():
 
 	
 def getDb():
-	apiUrl = "https://raw.githubusercontent.com/T-Dynamos/SRAPS-App/main/app.database"
+	apiUrl = "https://raw.githubusercontent.com/T-Dynamos/SRAPS-App/main/dataDb.py"
 	try:
 		a = requests.get(apiUrl,timeout=2)
 		open('dataDb.py', 'wb').write(a.content)
@@ -116,6 +121,38 @@ def show_message(Ok):
 			on_press=c)]
 		dialog.auto_dismiss=False
 		dialog.open()
+links = ["http://www.shriramashramps.org/assets/img/clogo/1.png",
+"http://www.shriramashramps.org/assets/img/clogo/2.png",
+"http://www.shriramashramps.org/assets/img/clogo/3.png",
+"http://www.shriramashramps.org/assets/img/clogo/4.png",
+"http://www.shriramashramps.org/assets/img/clogo/5.png",
+"http://www.shriramashramps.org/assets/img/clogo/6.png",
+"http://www.shriramashramps.org/assets/img/clogo/7.png",
+"http://www.shriramashramps.org/assets/img/clogo/8.png",
+"http://www.shriramashramps.org/assets/img/clogo/9.png",
+"http://www.shriramashramps.org/assets/img/clogo/10.png",
+"http://www.shriramashramps.org/assets/img/clogo/11.png",
+"http://www.shriramashramps.org/assets/img/clogo/12.png"]
+def add_part():
+	if check_intr() is True:
+		pass
+	else:
+		screen_manager.get_screen("Mscreen").ids.fu.add_widget(MDCard())	
+	for link in links:
+		card = MDCard(
+		radius=[20],
+		padding=10,
+		halign="center",
+		size_hint=(None,None),
+		size= ("340dp", "200dp")
+		)
+		image = AsycnImage (source=link, allow_stretch=True,size=(0.5,0.9) )
+		card.add_widget(image)
+		o = screen_manager.get_screen("Mscreen").ids
+		for i in range (1,3):
+			o.fu.add_widget(MDLabel(text=""))
+		o.fu.add_widget(card)
+	
 def show_timings():
 
 	a = """
@@ -128,7 +165,9 @@ MDCard:
 			cols:1
 			adaptive_height:True
 			spacing:app.spacing*3
+			id : boxi
 			orientation :"lr-tb"
+			padding:10
 
 			MDLabel:
 				text:"Timings can be changed any time as the situation demands."
@@ -149,6 +188,10 @@ MDCard:
 			MDLabel:
 				text:"• For Primary Wing the gate will open only 5 minutes before dispersal time."
 				font_name:"assets/Poppins-Regular.ttf"
+			MDLabel:
+				text:""
+
+				
 		"""
 	modal = ModalView(
 
@@ -236,6 +279,7 @@ def get_part_of_day(h):
 from datetime import datetime
 
 class SRAPS_APP(MDApp):
+	wid = lambda self:_thread.start_new_thread(add_part,())
 	Teachers = Teachers
 	spacing = Window.size[1]//20
 	time = get_part_of_day(datetime.now().hour)
@@ -260,5 +304,8 @@ class SRAPS_APP(MDApp):
 		os.system("rm assets/tmp-* ")
 	def table(self):
 		show_teachers("hy")
-
+	def empty (self,widget,space):
+		o = screen_manager.get_screen("Mscreen").ids
+		for i in range(1,space):
+			o.widget.add_widget(MDLabel(text="  "))
 SRAPS_APP().run()
