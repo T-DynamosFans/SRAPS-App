@@ -55,12 +55,9 @@ except Exception:
 	Teachers=[]
 	pass
 screen_manager = ScreenManager()
-maxS = Window.system_size
 if platform != "android":
-	height = maxS[0]//2.5
-	width = maxS[1]//1.5
-	Window.size = (height, width)
-print(maxS)
+	Window.size = (Window.size[0]//2, Window.size[1])
+y = Window.size[0]
 def check_intr():
 	import requests
 	try:
@@ -140,7 +137,7 @@ MDLabel:
 		elevation=10,
 		halign="center",
 		size_hint=(None,None),
-		size= ("340dp", "200dp")
+		size= (y, "200dp")
 		)
 		card.add_widget(FitImage(source='assets/no-internet.png'))
 		screen_manager.get_screen("Mscreen").ids.fu.add_widget(card)	
@@ -151,7 +148,7 @@ MDLabel:
 		halign="center",
 		elevation=0,
 		size_hint=(None,None),
-		size= ("340dp", "200dp")
+		size= (y, "200dp")
 		)
 		image = AsyncImage (source=link, allow_stretch=True)
 		card.add_widget(image)
@@ -284,6 +281,7 @@ def get_part_of_day(h):
 from datetime import datetime
 
 class SRAPS_APP(MDApp):
+	y = y
 	wid = lambda self:print()
 	Teachers = Teachers
 	spacing = Window.size[1]//20
