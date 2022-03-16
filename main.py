@@ -77,10 +77,10 @@ def getDb():
 		a = requests.get(apiUrl,timeout=2)
 		open('dataDb.py', 'wb').write(a.content)
 		import dataDb
-		from dataDb import DataBase, Teachers
+		from dataDb import DataBase, links
 	except Exception as e:
 		return exit(str(e))
-	return DataBase, Teachers
+	return DataBase, links
 
 def return_Sycn(url):
 	import random
@@ -93,9 +93,11 @@ def return_Sycn(url):
 		return "assets/no-internet.png"
 def update_data():
 	o = screen_manager.get_screen("Mscreen").ids
-	DataBase, Teachers = getDb()
+	DataBase, links = getDb()
 	o.news.text = str(DataBase["News"])		
-	o.nimg.source = DataBase["SliderImages"]
+	o.nimg1.source = str(DataBase["SliderImages"])
+	print (str(DataBase["SliderImages"]))
+	add_part(links)
 
 def show_message(Ok):
 		dialog=Snackbar(text="No Internet!",
@@ -121,36 +123,39 @@ def show_message(Ok):
 			on_press=c)]
 		dialog.auto_dismiss=False
 		dialog.open()
-links = ["http://www.shriramashramps.org/assets/img/clogo/1.png",
-"http://www.shriramashramps.org/assets/img/clogo/2.png",
-"http://www.shriramashramps.org/assets/img/clogo/3.png",
-"http://www.shriramashramps.org/assets/img/clogo/4.png",
-"http://www.shriramashramps.org/assets/img/clogo/5.png",
-"http://www.shriramashramps.org/assets/img/clogo/6.png",
-"http://www.shriramashramps.org/assets/img/clogo/7.png",
-"http://www.shriramashramps.org/assets/img/clogo/8.png",
-"http://www.shriramashramps.org/assets/img/clogo/9.png",
-"http://www.shriramashramps.org/assets/img/clogo/10.png",
-"http://www.shriramashramps.org/assets/img/clogo/11.png",
-"http://www.shriramashramps.org/assets/img/clogo/12.png"]
-def add_part():
+
+def add_part(links):
 	if check_intr() is True:
+		screen_manager.get_screen("Mscreen").ids.fu.add_widget(Builder.load_string("""
+MDLabel:
+	text:'Our Partners '
+	font_name:'assets/Poppins-Bold.ttf'
+	font_size:'20sp'
+			"""))
 		pass
 	else:
-		screen_manager.get_screen("Mscreen").ids.fu.add_widget(MDCard())	
+		card = MDCard(
+		radius=[20],
+		padding=0,
+		elevation=10,
+		halign="center",
+		size_hint=(None,None),
+		size= ("340dp", "200dp")
+		)
+		card.add_widget(FitImage(source='assets/no-internet.png'))
+		screen_manager.get_screen("Mscreen").ids.fu.add_widget(card)	
 	for link in links:
 		card = MDCard(
 		radius=[20],
 		padding=10,
 		halign="center",
+		elevation=0,
 		size_hint=(None,None),
 		size= ("340dp", "200dp")
 		)
-		image = AsycnImage (source=link, allow_stretch=True,size=(0.5,0.9) )
+		image = AsyncImage (source=link, allow_stretch=True)
 		card.add_widget(image)
 		o = screen_manager.get_screen("Mscreen").ids
-		for i in range (1,3):
-			o.fu.add_widget(MDLabel(text=""))
 		o.fu.add_widget(card)
 	
 def show_timings():
@@ -279,7 +284,7 @@ def get_part_of_day(h):
 from datetime import datetime
 
 class SRAPS_APP(MDApp):
-	wid = lambda self:_thread.start_new_thread(add_part,())
+	wid = lambda self:print()
 	Teachers = Teachers
 	spacing = Window.size[1]//20
 	time = get_part_of_day(datetime.now().hour)
@@ -297,11 +302,9 @@ class SRAPS_APP(MDApp):
 		return screen_manager
 	def on_start(self):
 		if check_intr() == True:
-			update_data()
+			_thread.start_new_thread(update_data,())
 		else:
 			show_message("true")
-
-		os.system("rm assets/tmp-* ")
 	def table(self):
 		show_teachers("hy")
 	def empty (self,widget,space):

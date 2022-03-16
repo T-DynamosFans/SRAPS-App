@@ -37,7 +37,17 @@
 					line_width:5
     				line_color: 1, 0,0 , 1
     				on_press:webbrowser.open(root.link)
-
+<Set@FloatLayout>:
+	text:""
+	orientation:"horizontal"
+	MDLabel:
+		text:root.text
+		font_name:"assets/Poppins-Regular.ttf"
+		font_size:"20sp"
+	MDSwitch:
+		halign:'center'
+		width: dp(50)
+		
 <FitCard@MDCard>
 	text:""
 	MDCard:
@@ -142,13 +152,13 @@ MDScreen:
 							elevation:40
 							halign:"center"
 							size_hint:None,None
-							size: "340dp", "150dp"
+							size: "340dp", "170dp"
 							style:'elevated'
 							md_bg_color:app.colorHex("#B0FFB4")
 							FitImage:
-								id:nimg
+								id:nimg1
 								source:app.NI
-								radius:[30,10]
+								radius:[30]
 
 						MDLabel:
 							id:news
@@ -690,5 +700,11 @@ MDScreen:
 				style:'elevated'
 				md_bg_color:app.colorHex("#EEF3FB")
 				pos_hint:{"center_x":0.5,"center_y":0.37}
-
+			MDGridLayout:
+				cols:1
+				pos_hint:{"center_x":0.5,"center_y":0.37}
+				Set:
+					text:"Hy"
+				Set:
+					text:"Hy"
 						
