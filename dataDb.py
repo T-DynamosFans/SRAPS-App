@@ -138,3 +138,15 @@ Teachers = (
 ['130', ' Mr.Viney Chanana', 'Teacher', 'Btech(Ece), Msc(Physics)'],
 ['131', ' Mr.Uttam Dash', 'Teacher', 'Matric']
 )
+links = ["http://www.shriramashramps.org/assets/img/clogo/1.png",
+"http://www.shriramashramps.org/assets/img/clogo/2.png",
+"http://www.shriramashramps.org/assets/img/clogo/3.png",
+"http://www.shriramashramps.org/assets/img/clogo/4.png",
+"http://www.shriramashramps.org/assets/img/clogo/5.png",
+"http://www.shriramashramps.org/assets/img/clogo/6.png",
+"http://www.shriramashramps.org/assets/img/clogo/7.png",
+"http://www.shriramashramps.org/assets/img/clogo/8.png",
+"http://www.shriramashramps.org/assets/img/clogo/9.png",
+"http://www.shriramashramps.org/assets/img/clogo/10.png",
+"http://www.shriramashramps.org/assets/img/clogo/11.png",
+"http://www.shriramashramps.org/assets/img/clogo/12.png"]
