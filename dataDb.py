@@ -1,6 +1,6 @@
 DataBase = {
 
-"SliderImages":"https://scontent.fixc7-1.fna.fbcdn.net/v/t39.30808-6/275300624_1178988679312314_2530405338295637793_n.jpg?stp=dst-jpg_s720x720&_nc_cat=108&ccb=1-5&_nc_sid=8bfeb9&_nc_ohc=8A8UMQ_TdqEAX-EWVup&_nc_ht=scontent.fixc7-1.fna&oh=00_AT-jbig7cSG3T5J36JDpx-nJkVtVUP-kKJHx4yXGnJIJig&oe=622B824A",
+"SliderImages":"https://scontent.fixc7-1.fna.fbcdn.net/v/t39.30808-6/275300475_1178978672646648_4277134675197452295_n.jpg?stp=cp0_dst-jpg_e15_fr_q65&_nc_cat=105&ccb=1-5&_nc_sid=110474&_nc_ohc=EY_VYMYD1HsAX-5Mg6S&_nc_ht=scontent.fixc7-1.fna&oh=00_AT93xls4U_tS0UrpuNX-tGwTiszEf_FOzEBbJ4mJ25PbNA&oe=6236DEA3",
 "News":"Admission is open "
 
 }
