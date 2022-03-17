@@ -57,6 +57,7 @@ except Exception:
 screen_manager = ScreenManager()
 if platform != "android":
 	Window.size = (Window.size[0]//2, Window.size[1])
+#	Window.size = (1080 ,2340)
 y = Window.size[0]
 def check_intr():
 	import requests
@@ -148,7 +149,7 @@ MDLabel:
 		halign="center",
 		elevation=0,
 		size_hint=(None,None),
-		size= (y, "200dp")
+		size= (y-y//15, "200dp")
 		)
 		image = AsyncImage (source=link, allow_stretch=True)
 		card.add_widget(image)

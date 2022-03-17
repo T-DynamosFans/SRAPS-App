@@ -125,10 +125,10 @@ MDScreen:
 				elevation:30
 				padding: 16
 				size_hint: None, None
-				size: app.y, "430dp"
+				size: app.y, Window.size[1]
 				style:'elevated'
 				md_bg_color:app.colorHex("#EEF3FB")
-				pos_hint:{"center_x":0.5,"center_y":0.30}
+				pos_hint:{"center_x":0.5,"center_y":0.17}
 				ScrollView:
 					size:(100,500)
 					MDGridLayout:
@@ -550,23 +550,23 @@ MDScreen:
 			font_size:"20sp"
 
 			MDCard:
-				radius:60
+				radius:80
 				elevation:0
 				padding:60
 				size_hint: None, None
-				size: app.y, "500dp"
+				size: app.y, Window.size[1]
 				style:'elevated'
 				md_bg_color:app.colorHex("#EEF3FB")
-				pos_hint:{"center_x":0.5,"center_y":0.37}			
+				pos_hint:{"center_x":0.5,"center_y":0.35}			
 			MDCard:
 				radius:80
 				height:20
 				elevation:0
 				padding: 16
 				size_hint: None, None
-				size: app.y, Window.size[1]
+				size: app.y-app.y//5, Window.size[1]
 				style:'filled'
-				pos_hint:{"center_x":0.5,"center_y":0.75}
+				pos_hint:{"center_x":0.5,"center_y":0.70}
 				md_bg_color:app.colorHex("#30A2D5")
 
 
@@ -577,7 +577,7 @@ MDScreen:
 				elevation:0
 				padding: 16				
 				size_hint: None, None
-				size: "320dp", "970dp"
+				size: app.y, Window.size[1]
 				style:'filled'
 				halign:"center"
 				md_bg_color:app.colorHex("#30A2D5")
@@ -726,8 +726,5 @@ MDScreen:
 			MDGridLayout:
 				cols:1
 				pos_hint:{"center_x":0.5,"center_y":0.37}
-				Set:
-					text:"Hy"
-				Set:
-					text:"Hy"
+
 						
