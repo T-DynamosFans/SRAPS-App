@@ -9,7 +9,7 @@
 		elevation:10
 		halign:"center"
 		size_hint:None,None
-		size: "340dp", "200dp"
+		size: app.y-app.y//15, "200dp"
 		style:'outline'
 		line_color:0,0,0,1
 		line_width:20
@@ -55,7 +55,7 @@
 		elevation:40
 		halign:"center"
 		size_hint:None,None
-		size: "340dp", "120dp"
+		size: app.y-app.y//15, "120dp"
 		style:'elevated'
 		md_bg_color:app.colorHex("#B0FFB4")
 		MDLabel:
@@ -103,7 +103,7 @@ MDScreen:
 				elevation:10
 				padding: 16
 				size_hint: None, None
-				size: "360dp", "400dp"
+				size: app.y,"400dp"
 				style:'elevated'
 				pos_hint:{"center_x":0.5,"center_y":0.75}
 				md_bg_color:app.colorHex("#30A2D5")
@@ -125,7 +125,7 @@ MDScreen:
 				elevation:30
 				padding: 16
 				size_hint: None, None
-				size: "360dp", "430dp"
+				size: app.y, "430dp"
 				style:'elevated'
 				md_bg_color:app.colorHex("#EEF3FB")
 				pos_hint:{"center_x":0.5,"center_y":0.30}
@@ -152,21 +152,36 @@ MDScreen:
 							elevation:40
 							halign:"center"
 							size_hint:None,None
-							size: "340dp", "170dp"
+							size: app.y-app.y//15,"170dp"
 							style:'elevated'
 							md_bg_color:app.colorHex("#B0FFB4")
 							FitImage:
 								id:nimg1
 								source:app.NI
 								radius:[30]
+						MDLabel:
+							text:''
+							font_name:"assets/Poppins-Bold.ttf"
+							font_size:'20sp'			
+						
 
 						MDLabel:
 							id:news
 							text:app.News
 							font_name:"assets/Poppins-Regular.ttf"
 							font_size:'15sp'
+
+						MDLabel:
+							text:''
+							font_name:"assets/Poppins-Bold.ttf"
+							font_size:'20sp'			
+
 						MDLabel:
 							text:'About Us'
+							font_name:"assets/Poppins-Bold.ttf"
+							font_size:'20sp'
+						MDLabel:
+							text:''
 							font_name:"assets/Poppins-Bold.ttf"
 							font_size:'20sp'
 
@@ -174,11 +189,19 @@ MDScreen:
 							text:'Education is the most powerful tool which can be used to change the world.'
 							font_name:"assets/Poppins-SemiBoldItalic.ttf"
 							font_size:'15sp'
+						MDLabel:
+							text:''
+							font_name:"assets/Poppins-Bold.ttf"
+							font_size:'20sp'
+						MDLabel:
+							text:''
+							font_name:"assets/Poppins-Bold.ttf"
+							font_size:'20sp'
 						MDCard:
 							radius:60
 							halign:"center"
 							size_hint:None,None
-							size: "340dp", "620dp"
+							size: app.y-app.y//15, "620dp"
 							style:'elevated'
 							padding:20
 							md_bg_color:app.colorHex("#F1A7FF")
@@ -531,7 +554,7 @@ MDScreen:
 				elevation:0
 				padding:60
 				size_hint: None, None
-				size: "340dp", "500dp"
+				size: app.y, "500dp"
 				style:'elevated'
 				md_bg_color:app.colorHex("#EEF3FB")
 				pos_hint:{"center_x":0.5,"center_y":0.37}			
@@ -541,7 +564,7 @@ MDScreen:
 				elevation:0
 				padding: 16
 				size_hint: None, None
-				size: "360dp", "510dp"
+				size: app.y, Window.size[1]
 				style:'filled'
 				pos_hint:{"center_x":0.5,"center_y":0.75}
 				md_bg_color:app.colorHex("#30A2D5")
@@ -678,7 +701,7 @@ MDScreen:
 				elevation:10
 				padding: 16
 				size_hint: None, None
-				size: "360dp", "410dp"
+				size: app.y, "410dp"
 				style:'elevated'
 				pos_hint:{"center_x":0.5,"center_y":0.75}
 				md_bg_color:app.colorHex("#30A2D5")
@@ -696,7 +719,7 @@ MDScreen:
 				elevation:30
 				padding: 16
 				size_hint: None, None
-				size: "360dp", "500dp"
+				size: app.y, "500dp"
 				style:'elevated'
 				md_bg_color:app.colorHex("#EEF3FB")
 				pos_hint:{"center_x":0.5,"center_y":0.37}
