@@ -28,7 +28,7 @@
 				font_size:"25sp"
 			MDGridLayout:
 				cols:1
-				padding:120
+				padding:self.minimum_height//2
 				MDRoundFlatButton:
 					text:"Read More"
 					pos_hint:{"center_x":0.5,"centre_y":0.50}
@@ -40,6 +40,14 @@
 <Set@FloatLayout>:
 	text:""
 	orientation:"horizontal"
+	halign:"center"
+	size_hint:None,None
+	size: app.y-app.y//15, "70dp"		
+	style:'outline'
+	line_color:0,0,0,1		
+	line_width:20
+	md_bg_color:app.colorHex("#FFEFE6")
+	radius:0
 	MDLabel:
 		text:root.text
 		font_name:"assets/Poppins-Regular.ttf"
@@ -82,6 +90,21 @@
 	elevation: 10
 
 	radius: [36, ]
+<Settings1@MDCard>:
+	size:(0.8,0.9)
+	onactive:print
+	active:False
+	padding:0
+	text:""
+	height: '48dp'
+	size_hint_y:None
+	MDLabel:
+		text:root.text
+		font_name:"assets/Poppins-Regular.ttf"
+	MDSwitch:
+		active:root.active
+		on_active:root.onactive()
+		width:50
 MDScreen:
 	name : "Mscreen"
 	md_bg_color:app.colorHex("#7E59FF")
@@ -724,7 +747,14 @@ MDScreen:
 				md_bg_color:app.colorHex("#EEF3FB")
 				pos_hint:{"center_x":0.5,"center_y":0.37}
 			MDGridLayout:
+				adaptive_height:True
 				cols:1
 				pos_hint:{"center_x":0.5,"center_y":0.37}
-
-						
+				Settings1:
+					text:"Save Debug logs"
+					onactive:print
+					active:False
+				Settings1:
+					text:"Always wake on screen"
+					onactive:print
+					active:False						
