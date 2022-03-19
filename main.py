@@ -39,7 +39,7 @@ import subprocess
 import sys
 import threading
 from pathlib import Path
-from kivy.clock import Clock
+#from kivy.clock import Clock
 from functools import partial
 from kivymd.icon_definitions import md_icons
 from kivy.utils import platform
@@ -62,7 +62,7 @@ y = Window.size[0]
 def check_intr():
 	import requests
 	try:
-		requests.get("https://google.com",timeout=1)
+		requests.get("https://motherfuckingwebsite.com.com",timeout=1)
 	except Exception as e:
 		print(str(e))
 		return False
@@ -97,6 +97,7 @@ def update_data():
 	print (str(DataBase["SliderImages"]))
 	add_part(links)
 
+	
 def show_message(Ok):
 		dialog=Snackbar(text="No Internet!",
 		snackbar_x="10dp",
@@ -104,9 +105,9 @@ def show_message(Ok):
 		radius=[30,30,30,30],
 		snackbar_y="55dp",
 		size_hint_x=.95)
-		a = lambda self : (Toast("Updating data"),_thread.start_new_thread(update_data,()),dialog.dismiss())
+		a = lambda self : Toast("Updating data"),_thread.start_new_thread(update_data,()),dialog.dismiss()
 		b = lambda self : Toast("Internet not connected")
-		c = lambda self : (dialog.dismiss(),Clock.schedule_once(show_message,5))
+		c = lambda self : (dialog.dismiss(),_thread.start_new_thread(show_message,5))
 		d = lambda self : a(True) if check_intr() is True else b(True)
 		dialog.buttons = [
 		MDFlatButton(text="Retry",
@@ -299,11 +300,13 @@ class SRAPS_APP(MDApp):
 		screen_manager.add_widget(Builder.load_file('main.kv'))
 		screen_manager.current = "Mscreen"
 		return screen_manager
-	def on_start(self):
+	def test(self):
 		if check_intr() == True:
 			_thread.start_new_thread(update_data,())
 		else:
 			show_message("true")
+	def on_start(self):
+		_thread.start_new_thread(self.test,())
 	def table(self):
 		show_teachers("hy")
 	def empty (self,widget,space):
