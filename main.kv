@@ -28,7 +28,7 @@
 				font_size:"25sp"
 			MDGridLayout:
 				cols:1
-				padding:self.minimum_height//2
+				padding:120
 				MDRoundFlatButton:
 					text:"Read More"
 					pos_hint:{"center_x":0.5,"centre_y":0.50}
@@ -37,24 +37,61 @@
 					line_width:5
     				line_color: 1, 0,0 , 1
     				on_press:webbrowser.open(root.link)
-<Set@FloatLayout>:
+<FitCard2@MDCard>
 	text:""
-	orientation:"horizontal"
-	halign:"center"
-	size_hint:None,None
-	size: app.y-app.y//15, "70dp"		
-	style:'outline'
-	line_color:0,0,0,1		
-	line_width:20
-	md_bg_color:app.colorHex("#FFEFE6")
-	radius:0
+	image:""
+	MDCard:
+		radius:60
+		elevation:10
+		halign:"center"
+		size_hint:None,None
+		size: app.y-app.y//15, "200dp"
+		style:'outline'
+		line_color:0,0,0,1
+		orientation:"horizontal"
+		line_width:20
+		md_bg_color:app.colorHex("#FFEFE6")
+		FitImage:
+			source:root.image
+			radius:[30,10]
+		MDLabel:
+			text:root.text
+<Set@MDCard>:
+	text:""
+	active1:False
+	on_active1:print()
+	radius:70
+	padding: 16
+	size_hint: None, None
+	size: app.y, "50dp"
+	elevation:0
+	style:'elevated'
+	md_bg_color:app.colorHex("#EEF3FB")
 	MDLabel:
 		text:root.text
 		font_name:"assets/Poppins-Regular.ttf"
-		font_size:"20sp"
+		font_size:"15sp"
 	MDSwitch:
 		halign:'center'
 		width: dp(50)
+
+<Set2@MDCard>:
+	text:""
+	active1:False
+	on_active1:print()
+	radius:70
+	padding: 16
+	size_hint: None, None
+	size: app.y, "50dp"
+	style:'elevated'
+	elevation:0
+	md_bg_color:app.colorHex("#EEF3FB")
+	MDLabel:
+		text:root.text
+		font_name:"assets/Poppins-Regular.ttf"
+		font_size:"15sp"
+	MDIconButton:
+		icon:"chevron-right"
 		
 <FitCard@MDCard>
 	text:""
@@ -90,21 +127,6 @@
 	elevation: 10
 
 	radius: [36, ]
-<Settings1@MDCard>:
-	size:(0.8,0.9)
-	onactive:print
-	active:False
-	padding:0
-	text:""
-	height: '48dp'
-	size_hint_y:None
-	MDLabel:
-		text:root.text
-		font_name:"assets/Poppins-Regular.ttf"
-	MDSwitch:
-		active:root.active
-		on_active:root.onactive()
-		width:50
 MDScreen:
 	name : "Mscreen"
 	md_bg_color:app.colorHex("#7E59FF")
@@ -129,7 +151,7 @@ MDScreen:
 				size: app.y,"400dp"
 				style:'elevated'
 				pos_hint:{"center_x":0.5,"center_y":0.75}
-				md_bg_color:app.colorHex("#30A2D5")
+				md_bg_color:app.colorHex("#FC46AA")
 				
 			Image:
 				source:"assets/co.png"
@@ -148,10 +170,10 @@ MDScreen:
 				elevation:30
 				padding: 16
 				size_hint: None, None
-				size: app.y, Window.size[1]
+				size: app.y, "430dp"
 				style:'elevated'
 				md_bg_color:app.colorHex("#EEF3FB")
-				pos_hint:{"center_x":0.5,"center_y":0.17}
+				pos_hint:{"center_x":0.5,"center_y":0.30}
 				ScrollView:
 					size:(100,500)
 					MDGridLayout:
@@ -160,6 +182,13 @@ MDScreen:
 						spacing: Window.size[1]/20
 						padding:10
 						id:fu
+						MDSwiper:
+							size:app.y,"250dp"
+							MDSwiperItem:
+								FitCard2:
+									text:"Auditorium"
+									image:"assets/ncc-1.jpg"
+								
 						MDLabel:
 							text:''
 							font_name:"assets/Poppins-Bold.ttf"
@@ -573,14 +602,14 @@ MDScreen:
 			font_size:"20sp"
 
 			MDCard:
-				radius:80
+				radius:60
 				elevation:0
 				padding:60
 				size_hint: None, None
 				size: app.y, Window.size[1]
 				style:'elevated'
 				md_bg_color:app.colorHex("#EEF3FB")
-				pos_hint:{"center_x":0.5,"center_y":0.35}			
+				pos_hint:{"center_x":0.5,"center_y":0.40}			
 			MDCard:
 				radius:80
 				height:20
@@ -590,20 +619,20 @@ MDScreen:
 				size: app.y-app.y//5, Window.size[1]
 				style:'filled'
 				pos_hint:{"center_x":0.5,"center_y":0.70}
-				md_bg_color:app.colorHex("#30A2D5")
+				md_bg_color:app.colorHex("#FC46AA")
 
 
 
 			MDCard:
-				radius:[0,0,60,60]
-				pos_hint:{"center_x":0.5,"center_y":0.999}
+				radius:120
+				pos_hint:{"center_x":0.5,"center_y":1}
 				elevation:0
 				padding: 16				
 				size_hint: None, None
 				size: app.y, Window.size[1]
 				style:'filled'
 				halign:"center"
-				md_bg_color:app.colorHex("#30A2D5")
+				md_bg_color:app.colorHex("#FC46AA")
 					
 			MDLabel:
 				text:"Essentials"
@@ -700,7 +729,7 @@ MDScreen:
 				text_color:1,1,1,1
 				line_color:1,1,1,1				
 				font_size : "20sp"
-				on_press : app.table()
+				on_press : app.tes()
 				size_hint_x : 0.7
 				size_hint_y : 0.08
 				line_width :3
@@ -727,7 +756,7 @@ MDScreen:
 				size: app.y, "410dp"
 				style:'elevated'
 				pos_hint:{"center_x":0.5,"center_y":0.75}
-				md_bg_color:app.colorHex("#30A2D5")
+				md_bg_color:app.colorHex("#FC46AA")
 
 			MDLabel:
 				text:"Settings"
@@ -746,15 +775,26 @@ MDScreen:
 				style:'elevated'
 				md_bg_color:app.colorHex("#EEF3FB")
 				pos_hint:{"center_x":0.5,"center_y":0.37}
-			MDGridLayout:
-				adaptive_height:True
-				cols:1
-				pos_hint:{"center_x":0.5,"center_y":0.37}
-				Settings1:
-					text:"Save Debug logs"
-					onactive:print
-					active:False
-				Settings1:
-					text:"Always wake on screen"
-					onactive:print
-					active:False						
+				MDGridLayout:
+					cols:1
+			#	adaptive_height:True
+					#pos_hint:{"center_x":0.5,"center_y":40}
+					Set:
+						text:"Save Debug logs"
+
+					Set:
+				
+						text:"Check update on startup"
+
+					Set2:
+						text:"Check for update" 
+					Set2:
+						text:"About US"
+						
+			MDLabel:
+				pos_hint:{"center_x":0.5,"center_y":0.10}
+				text:"Application v"+app.__version__+" Running on Python v"+app.python_version
+				theme_text_color:"Hint" 
+				font_name:"assets/Poppins-Regular.ttf"
+				font_size:"15sp"
+					

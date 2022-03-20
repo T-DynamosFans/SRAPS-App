@@ -27,7 +27,6 @@ from kivymd.uix.dialog import MDDialog
 from kivy.utils import get_color_from_hex
 from kivy.animation import Animation
 from kivy.uix.modalview import ModalView
-
 from kivy.uix.carousel import Carousel
 from kivymd.uix.expansionpanel import *
 from kivymd.uix.datatables import MDDataTable
@@ -39,7 +38,7 @@ import subprocess
 import sys
 import threading
 from pathlib import Path
-#from kivy.clock import Clock
+from kivy.clock import Clock
 from functools import partial
 from kivymd.icon_definitions import md_icons
 from kivy.utils import platform
@@ -47,22 +46,26 @@ from kivy.core.window import Window
 from kivymd.uix.snackbar import Snackbar
 import time
 import _thread
+#from colorpicker import MDColorPicker
 from kivymd.uix.dialog import MDDialog
 from functools import partial
+import settings
 try:
 	from dataDb import Teachers
 except Exception:
 	Teachers=[]
 	pass
+
+
+
 screen_manager = ScreenManager()
 if platform != "android":
 	Window.size = (Window.size[0]//2, Window.size[1])
-#	Window.size = (1080 ,2340)
 y = Window.size[0]
 def check_intr():
 	import requests
 	try:
-		requests.get("https://motherfuckingwebsite.com.com",timeout=1)
+		requests.get("https://google.com",timeout=1)
 	except Exception as e:
 		print(str(e))
 		return False
@@ -97,17 +100,17 @@ def update_data():
 	print (str(DataBase["SliderImages"]))
 	add_part(links)
 
-	
-def show_message(Ok):
+def show_message():
 		dialog=Snackbar(text="No Internet!",
 		snackbar_x="10dp",
 
 		radius=[30,30,30,30],
 		snackbar_y="55dp",
 		size_hint_x=.95)
-		a = lambda self : Toast("Updating data"),_thread.start_new_thread(update_data,()),dialog.dismiss()
+		a = lambda self : (Toast("Updating data"),_thread.start_new_thread(update_data,()),dialog.dismiss())
 		b = lambda self : Toast("Internet not connected")
-		c = lambda self : (dialog.dismiss(),_thread.start_new_thread(show_message,5))
+		show_message_true = lambda self:show_message()
+		c = lambda self : (dialog.dismiss(),Clock.schedule_once(show_message_true,5))
 		d = lambda self : a(True) if check_intr() is True else b(True)
 		dialog.buttons = [
 		MDFlatButton(text="Retry",
@@ -150,7 +153,7 @@ MDLabel:
 		halign="center",
 		elevation=0,
 		size_hint=(None,None),
-		size= (y-y//15, "200dp")
+		size= (y, "200dp")
 		)
 		image = AsyncImage (source=link, allow_stretch=True)
 		card.add_widget(image)
@@ -206,8 +209,9 @@ MDCard:
 	)
 
 	modal.add_widget(Builder.load_string(a))
-
 	modal.open()	
+	
+	
 def show_fees():
 	card = MDCard(elevation=50,radius=[30,30,30,30],size=(0.83,0.7))
 	a = MDDataTable(
@@ -281,8 +285,15 @@ def get_part_of_day(h):
         else "Night"
     )
 from datetime import datetime
+from platform import python_version
 
 class SRAPS_APP(MDApp):
+	settings = settings
+	logs = settings.getSettings()["logs"]
+	update = settings.getSettings()["update"]
+	tes = lambda self :  print("Hy)")
+	python_version = python_version()
+	__version__ = __version__
 	y = y
 	wid = lambda self:print()
 	Teachers = Teachers
@@ -300,17 +311,13 @@ class SRAPS_APP(MDApp):
 		screen_manager.add_widget(Builder.load_file('main.kv'))
 		screen_manager.current = "Mscreen"
 		return screen_manager
-	def test(self):
+	def start(self):
 		if check_intr() == True:
-			_thread.start_new_thread(update_data,())
+			update_data()
 		else:
-			show_message("true")
+			show_message()
 	def on_start(self):
-		_thread.start_new_thread(self.test,())
-	def table(self):
-		show_teachers("hy")
-	def empty (self,widget,space):
-		o = screen_manager.get_screen("Mscreen").ids
-		for i in range(1,space):
-			o.widget.add_widget(MDLabel(text="  "))
+		_thread.start_new_thread(self.start,())
+
+
 SRAPS_APP().run()
