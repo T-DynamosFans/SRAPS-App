@@ -19,24 +19,23 @@
 			radius:[30,10]
 		MDBoxLayout:
 			orientation:"vertical"
-			spacing:10
+			padding:self.width//20
 			MDLabel:
-				pos_hint:{"center_x":0.5,"centre_y":0.10}
+				#pos_hint:{"center_x":0.5,"centre_y":0.10}
 				text:root.text
 				halign:"center"
 				font_name:"assets/Poppins-Bold.ttf"
 				font_size:"25sp"
-			MDGridLayout:
-				cols:1
-				padding:120
-				MDRoundFlatButton:
-					text:"Read More"
-					pos_hint:{"center_x":0.5,"centre_y":0.50}
-					text_color: 1, 0, 0, 1
-					halign:"center"
-					line_width:5
-    				line_color: 1, 0,0 , 1
-    				on_press:webbrowser.open(root.link)
+			
+			MDRoundFlatButton:
+				text:"Read More"
+			#	pos_hint:{"center_x":0.5,"centre_y":0.50}
+				text_color: 1, 0, 0, 1
+				halign:"center"
+				line_width:5
+    			
+    			line_color: 1, 0,0 , 1
+    			on_press:webbrowser.open(root.link)
 <FitCard2@MDCard>
 	text:""
 	image:""

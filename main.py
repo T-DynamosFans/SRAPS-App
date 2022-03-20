@@ -246,7 +246,7 @@ def show_fees():
 	modal.add_widget(card)
 
 	modal.open()	
-def show_teachers(self):
+def show_teachers():
 	card = MDCard(elevation=50, radius=[30],size=(1,1))
 	f = MDDataTable(
 	size=(0.8,0.8),
@@ -288,6 +288,7 @@ from datetime import datetime
 from platform import python_version
 
 class SRAPS_APP(MDApp):
+	table = lambda self: show_teachers()
 	settings = settings
 	logs = settings.getSettings()["logs"]
 	update = settings.getSettings()["update"]
@@ -318,6 +319,6 @@ class SRAPS_APP(MDApp):
 			show_message()
 	def on_start(self):
 		_thread.start_new_thread(self.start,())
-
+	
 
 SRAPS_APP().run()
