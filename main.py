@@ -142,7 +142,7 @@ MDLabel:
 		elevation=10,
 		halign="center",
 		size_hint=(None,None),
-		size= (y, "200dp")
+		size= (y-y//5, "200dp")
 		)
 		card.add_widget(FitImage(source='assets/no-internet.png'))
 		screen_manager.get_screen("Mscreen").ids.fu.add_widget(card)	
