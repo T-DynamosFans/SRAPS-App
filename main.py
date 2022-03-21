@@ -46,7 +46,7 @@ from kivy.core.window import Window
 from kivymd.uix.snackbar import Snackbar
 import time
 import _thread
-#from colorpicker import MDColorPicker
+from kivymd.uix.picker import *
 from kivymd.uix.dialog import MDDialog
 from functools import partial
 import settings
@@ -142,7 +142,7 @@ MDLabel:
 		elevation=10,
 		halign="center",
 		size_hint=(None,None),
-		size= (y-y//5, "200dp")
+		size= (y, "200dp")
 		)
 		card.add_widget(FitImage(source='assets/no-internet.png'))
 		screen_manager.get_screen("Mscreen").ids.fu.add_widget(card)	
@@ -153,7 +153,7 @@ MDLabel:
 		halign="center",
 		elevation=0,
 		size_hint=(None,None),
-		size= (y, "200dp")
+		size= (y-y//15, "200dp")
 		)
 		image = AsyncImage (source=link, allow_stretch=True)
 		card.add_widget(image)
@@ -292,6 +292,7 @@ class SRAPS_APP(MDApp):
 	settings = settings
 	logs = settings.getSettings()["logs"]
 	update = settings.getSettings()["update"]
+	update2 = lambda self:settings.getSettings()["update"]
 	tes = lambda self :  print("Hy)")
 	python_version = python_version()
 	__version__ = __version__
@@ -309,6 +310,11 @@ class SRAPS_APP(MDApp):
 		return get_color_from_hex(color)
 
 	def build(self):
+		self.theme_cls.primary_palette = "Blue"
+
+		self.theme_cls.accent_palette = "Yellow"
+		
+		print (self.theme_cls.primary_palette)
 		screen_manager.add_widget(Builder.load_file('main.kv'))
 		screen_manager.current = "Mscreen"
 		return screen_manager
@@ -320,5 +326,18 @@ class SRAPS_APP(MDApp):
 	def on_start(self):
 		_thread.start_new_thread(self.start,())
 	
+	def show_theme_picker(self):
+  	  theme_dialog = MDThemePicker()
+  	  theme_dialog.open()
+	def theme(self,theme):
+		if theme == "Dark":
+			theme1 = self.theme_cls.primary_dark
+		else:
+			theme1 = self.theme_cls.primary_light
+		a = screen_manager.get_screen("Mscreen").ids
+		a.t1.md_bg_color=theme1
+		a.t2.md_bg_color=theme1
+		a.t3.md_bg_color=theme1
+		a.t4.md_bg_color=theme1
 
 SRAPS_APP().run()

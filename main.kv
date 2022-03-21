@@ -19,7 +19,7 @@
 			radius:[30,10]
 		MDBoxLayout:
 			orientation:"vertical"
-			padding:self.width//18
+			padding:self.width//20
 			MDLabel:
 				#pos_hint:{"center_x":0.5,"centre_y":0.10}
 				text:root.text
@@ -27,13 +27,12 @@
 				font_name:"assets/Poppins-Bold.ttf"
 				font_size:"25sp"
 			
+
 			MDRoundFlatButton:
 				text:"Read More"
-			#	pos_hint:{"center_x":0.5,"centre_y":0.50}
 				text_color: 1, 0, 0, 1
-				halign:"center"
-				line_width:5
-    			
+				halign:"center"					
+				line_width:5   		
     			line_color: 1, 0,0 , 1
     			on_press:webbrowser.open(root.link)
 <FitCard2@MDCard>
@@ -55,42 +54,7 @@
 			radius:[30,10]
 		MDLabel:
 			text:root.text
-<Set@MDCard>:
-	text:""
-	active1:False
-	on_active1:print()
-	radius:70
-	padding: 16
-	size_hint: None, None
-	size: app.y, "50dp"
-	elevation:0
-	style:'elevated'
-	md_bg_color:app.colorHex("#EEF3FB")
-	MDLabel:
-		text:root.text
-		font_name:"assets/Poppins-Regular.ttf"
-		font_size:"15sp"
-	MDSwitch:
-		halign:'center'
-		width: dp(50)
 
-<Set2@MDCard>:
-	text:""
-	active1:False
-	on_active1:print()
-	radius:70
-	padding: 16
-	size_hint: None, None
-	size: app.y, "50dp"
-	style:'elevated'
-	elevation:0
-	md_bg_color:app.colorHex("#EEF3FB")
-	MDLabel:
-		text:root.text
-		font_name:"assets/Poppins-Regular.ttf"
-		font_size:"15sp"
-	MDIconButton:
-		icon:"chevron-right"
 		
 <FitCard@MDCard>
 	text:""
@@ -143,6 +107,7 @@ MDScreen:
 			font_size:"20sp"
 			MDCard:
 				radius:60
+				id:t1
 				height:20
 				elevation:10
 				padding: 16
@@ -150,7 +115,7 @@ MDScreen:
 				size: app.y,"400dp"
 				style:'elevated'
 				pos_hint:{"center_x":0.5,"center_y":0.75}
-				md_bg_color:app.colorHex("#FC46AA")
+				md_bg_color:app.theme_cls.primary_light if app.update is False else app.theme_cls.primary_dark 
 				
 			Image:
 				source:"assets/co.png"
@@ -611,6 +576,7 @@ MDScreen:
 				pos_hint:{"center_x":0.5,"center_y":0.40}			
 			MDCard:
 				radius:80
+				id:t2
 				height:20
 				elevation:0
 				padding: 16
@@ -618,12 +584,13 @@ MDScreen:
 				size: app.y-app.y//5, Window.size[1]
 				style:'filled'
 				pos_hint:{"center_x":0.5,"center_y":0.70}
-				md_bg_color:app.colorHex("#FC46AA")
+				md_bg_color:app.theme_cls.primary_light if app.update is False else app.theme_cls.primary_dark 
 
 
 
 			MDCard:
 				radius:120
+				id:t3
 				pos_hint:{"center_x":0.5,"center_y":1}
 				elevation:0
 				padding: 16				
@@ -631,7 +598,7 @@ MDScreen:
 				size: app.y, Window.size[1]
 				style:'filled'
 				halign:"center"
-				md_bg_color:app.colorHex("#FC46AA")
+				md_bg_color:app.theme_cls.primary_light if app.update is False else app.theme_cls.primary_dark 
 					
 			MDLabel:
 				text:"Essentials"
@@ -640,7 +607,7 @@ MDScreen:
 				font_size:"30sp"
 				pos_hint:{"center_x":0.5,"center_y":0.90}
 				theme_text_color:"Custom"
-				text_color:1,1,1,1
+				text_color:app.theme_cls.accent_color
 
 			MDRoundFlatIconButton:
 				text : "School Faculty"
@@ -648,10 +615,10 @@ MDScreen:
 				icon : "human-queue"
 				line_width :2
 				font_name : "assets/Poppins-Regular.ttf"
-				icon_color:1,1,1,1
+				icon_color:app.theme_cls.accent_color
 				theme_text_color:"Custom"
-				text_color:1,1,1,1
-				line_color:1,1,1,1
+				text_color:app.theme_cls.accent_color
+				line_color:app.theme_cls.accent_color
 				font_size : "20sp"
 				on_press : app.table()
 				size_hint_x : 0.7
@@ -663,10 +630,10 @@ MDScreen:
 				icon : "timetable"
 				line_width :2
 				font_name : "assets/Poppins-Regular.ttf"
-				icon_color:1,1,1,1
+				icon_color:app.theme_cls.accent_color
 				theme_text_color:"Custom"
-				text_color:1,1,1,1
-				line_color:1,1,1,1				
+				text_color:app.theme_cls.accent_color
+				line_color:app.theme_cls.accent_color				
 				font_size : "20sp"
 				on_press : app.time()
 				size_hint_x : 0.7
@@ -678,10 +645,10 @@ MDScreen:
 				icon : "currency-inr"
 				line_width :2
 				font_name : "assets/Poppins-Regular.ttf"
-				icon_color:1,1,1,1
+				icon_color:app.theme_cls.accent_color
 				theme_text_color:"Custom"
-				text_color:1,1,1,1
-				line_color:1,1,1,1				
+				text_color:app.theme_cls.accent_color
+				line_color:app.theme_cls.accent_color				
 				font_size : "20sp"
 				on_press : app.fees()
 				size_hint_x : 0.7
@@ -693,10 +660,10 @@ MDScreen:
 				icon : "school"
 				line_width :2
 				font_name : "assets/Poppins-Regular.ttf"
-				icon_color:1,1,1,1
+				icon_color:app.theme_cls.accent_color
 				theme_text_color:"Custom"
-				text_color:1,1,1,1
-				line_color:1,1,1,1				
+				text_color:app.theme_cls.accent_color
+				line_color:app.theme_cls.accent_color				
 				font_size : "20sp"
 				on_press : app.table()
 				size_hint_x : 0.7
@@ -708,10 +675,10 @@ MDScreen:
 				icon : "human-capacity-increase"
 				line_width :2
 				font_name : "assets/Poppins-Regular.ttf"
-				icon_color:1,1,1,1
+				icon_color:app.theme_cls.accent_color
 				theme_text_color:"Custom"
-				text_color:1,1,1,1
-				line_color:1,1,1,1				
+				text_color:app.theme_cls.accent_color
+				line_color:app.theme_cls.accent_color				
 				font_size : "20sp"
 				on_press : app.table()
 				size_hint_x : 0.7
@@ -723,10 +690,10 @@ MDScreen:
 				icon : "notebook"
 				line_width :2
 				font_name : "assets/Poppins-Regular.ttf"
-				icon_color:1,1,1,1
+				icon_color:app.theme_cls.accent_color
 				theme_text_color:"Custom"
-				text_color:1,1,1,1
-				line_color:1,1,1,1				
+				text_color:app.theme_cls.accent_color
+				line_color:app.theme_cls.accent_color				
 				font_size : "20sp"
 				on_press : app.tes()
 				size_hint_x : 0.7
@@ -748,6 +715,7 @@ MDScreen:
 			font_size:"20sp"
 			MDCard:
 				radius:60
+				id:t4
 				height:20
 				elevation:10
 				padding: 16
@@ -755,7 +723,7 @@ MDScreen:
 				size: app.y, "410dp"
 				style:'elevated'
 				pos_hint:{"center_x":0.5,"center_y":0.75}
-				md_bg_color:app.colorHex("#FC46AA")
+				md_bg_color:app.theme_cls.primary_light if app.update is False else app.theme_cls.primary_dark 
 
 			MDLabel:
 				text:"Settings"
@@ -764,7 +732,7 @@ MDScreen:
 				halign:"center"
 				pos_hint:{"center_x":0.5,"center_y":0.90}
 				theme_text_color:"Custom"
-				text_color:1,1,1,1
+				text_color:app.theme_cls.accent_color
 			MDCard:
 				radius:60
 				elevation:30
@@ -776,23 +744,61 @@ MDScreen:
 				pos_hint:{"center_x":0.5,"center_y":0.37}
 				MDGridLayout:
 					cols:1
-			#	adaptive_height:True
-					#pos_hint:{"center_x":0.5,"center_y":40}
-					Set:
-						text:"Save Debug logs"
-
-					Set:
-				
-						text:"Check update on startup"
-
-					Set2:
-						text:"Check for update" 
-					Set2:
-						text:"About US"
-						
+					MDCard:
+						radius:70
+						padding: 16
+						size_hint: None, None
+						size: app.y, "50dp"
+						elevation:0
+						style:'elevated'
+						md_bg_color:app.colorHex("#EEF3FB")
+						MDLabel:
+							text:"Save Debug logs"
+							font_name:"assets/Poppins-Regular.ttf"
+							font_size:"15sp"
+						MDSwitch:
+							halign:'center'
+							width: dp(50)
+							active:app.logs
+							on_active: app.settings.writeSettings("logs","False") if app.uodate is True else app.settings.writeSettings("logs","True")
+					MDCard:
+						radius:70
+						padding: 16
+						size_hint: None, None
+						size: app.y, "50dp"
+						elevation:0
+						style:'elevated'
+						md_bg_color:app.colorHex("#EEF3FB")
+						MDLabel:
+							text:"Dark Mode"
+							font_name:"assets/Poppins-Regular.ttf"
+							font_size:"15sp"
+						MDSwitch:
+							id :hi
+							halign:'center'
+							width: dp(50)
+							active:app.update
+							on_active: app.settings.writeSettings("update","False");app.theme("Light") if app.update2() is True else app.settings.writeSettings("update","True");app.theme("Dark")
+					MDCard:
+						radius:70
+						padding: 16
+						size_hint: None, None
+						size: app.y, "50dp"
+						elevation:0
+						ripple_behavior:True
+						on_press:app.show_theme_picker()					
+						style:'elevated'
+						md_bg_color:app.colorHex("#EEF3FB")
+						MDLabel:
+							text:"Change Theme"
+							font_name:"assets/Poppins-Regular.ttf"
+							font_size:"15sp"
+						MDIconButton:
+							icon:"chevron-right"
+							on_press:app.show_theme_picker()																					
 			MDLabel:
 				pos_hint:{"center_x":0.5,"center_y":0.10}
-				text:"Application v"+app.__version__+" Running on Python v"+app.python_version
+				text:" Application v"+app.__version__+" Running on Python v"+app.python_version
 				theme_text_color:"Hint" 
 				font_name:"assets/Poppins-Regular.ttf"
 				font_size:"15sp"
