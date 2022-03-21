@@ -1,6 +1,6 @@
 DataBase = {
 
-"SliderImages":"https://scontent.fixc7-1.fna.fbcdn.net/v/t39.30808-6/275300475_1178978672646648_4277134675197452295_n.jpg?stp=cp0_dst-jpg_e15_fr_q65&_nc_cat=105&ccb=1-5&_nc_sid=110474&_nc_ohc=EY_VYMYD1HsAX-5Mg6S&_nc_ht=scontent.fixc7-1.fna&oh=00_AT93xls4U_tS0UrpuNX-tGwTiszEf_FOzEBbJ4mJ25PbNA&oe=6236DEA3",
+"SliderImages":"https://www.pngitem.com/pimgs/m/174-1741366_school-admission-open-png-transparent-png.png",
 "News":"Admission is open "
 
 }
