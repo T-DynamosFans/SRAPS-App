@@ -1,6 +1,6 @@
 DataBase = {
 
-"SliderImages":"https://www.pngitem.com/pimgs/m/174-1741366_school-admission-open-png-transparent-png.png",
+"SliderImages":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSe8b2jhAOpt1P0TCC1eUms14TMt4Jeb0cw2g&usqp=CAU",
 "News":"Admission is open "
 
 }
