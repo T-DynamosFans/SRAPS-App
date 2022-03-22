@@ -19,14 +19,12 @@
 			radius:[30,10]
 		MDBoxLayout:
 			orientation:"vertical"
-			padding:self.width//20
 			MDLabel:
 				#pos_hint:{"center_x":0.5,"centre_y":0.10}
 				text:root.text
 				halign:"center"
 				font_name:"assets/Poppins-Bold.ttf"
 				font_size:"25sp"
-			
 
 			MDRoundFlatButton:
 				text:"Read More"
@@ -34,6 +32,7 @@
 				halign:"center"					
 				line_width:5   		
     			line_color: 1, 0,0 , 1
+    			size:(self.width,"50dp")
     			on_press:webbrowser.open(root.link)
 <FitCard2@MDCard>
 	text:""
@@ -85,6 +84,12 @@
 		check:True
 		column_data:[("No.", dp(30)),("Name", dp(30)),("Designation", dp(60)),("Qualification", dp(30))]
 		row_data:app.Teachers
+<NavigationButton@Button_Item>
+    icon_color: app.theme_cls.text_color
+    text_color: app.theme_cls.text_color
+    button_bg_color: app.theme_cls.primary_color
+    mode: 'color_on_active'
+    badge_disabled: True
 <Card>:
 
 	elevation: 10
@@ -94,6 +99,7 @@ MDScreen:
 	name : "Mscreen"
 	md_bg_color:app.colorHex("#7E59FF")
 	on_enter:app.wid()
+
 	MDBottomNavigation:
 		panel_color:app.colorHex("#F1F5FB")
 		selected_color_background:app.colorHex("#9DE6FF")
@@ -101,7 +107,7 @@ MDScreen:
 			md_bg_color:app.colorHex("#7E59FF")
 			name: "screen1"
 			icon:"home"
-			icon_color:0,0,0,1
+			icon_color: 0,0,0,1
 			text:"Home"
 			font_name:"Poppins-Bold.ttf"
 			font_size:"20sp"
@@ -139,12 +145,11 @@ MDScreen:
 				md_bg_color:app.colorHex("#EEF3FB")
 				pos_hint:{"center_x":0.5,"center_y":0.30}
 				ScrollView:
-					size:(100,500)
 					MDGridLayout:
 						cols:1
 						adaptive_height:True
 						spacing: Window.size[1]/20
-						padding:10
+						padding:0
 						id:fu
 						MDSwiper:
 							size:app.y,"250dp"
@@ -555,7 +560,8 @@ MDScreen:
 				pos_hint : {"center_x":0.5,"center_y":0.83}
 				allow_stretch:True
 				size_hint_x : 0.6
-				size_hint_y : 0.6				
+				size_hint_y : 0.6
+    
 
 		MDBottomNavigationItem:
 			name: "screen2"
@@ -748,7 +754,7 @@ MDScreen:
 						radius:70
 						padding: 16
 						size_hint: None, None
-						size: app.y, "50dp"
+						size: app.y-app.y//15, "50dp"
 						elevation:0
 						style:'elevated'
 						md_bg_color:app.colorHex("#EEF3FB")
@@ -756,16 +762,21 @@ MDScreen:
 							text:"Save Debug logs"
 							font_name:"assets/Poppins-Regular.ttf"
 							font_size:"15sp"
+						
+
+
 						MDSwitch:
+							id :hi
+							widget_style: "ios"
 							halign:'center'
-							width: dp(50)
-							active:app.logs
-							on_active: app.settings.writeSettings("logs","False") if app.uodate is True else app.settings.writeSettings("logs","True")
+							width: dp(30)
+							active:app.update
+							on_active:app.settings.writeSettings("logs","False") if self.active is False else app.settings.writeSettings("logs","True")
 					MDCard:
 						radius:70
 						padding: 16
 						size_hint: None, None
-						size: app.y, "50dp"
+						size: app.y-app.y//15, "50dp"
 						elevation:0
 						style:'elevated'
 						md_bg_color:app.colorHex("#EEF3FB")
@@ -773,12 +784,16 @@ MDScreen:
 							text:"Dark Mode"
 							font_name:"assets/Poppins-Regular.ttf"
 							font_size:"15sp"
+
+
 						MDSwitch:
+						
 							id :hi
+							widget_style: "ios"
 							halign:'center'
-							width: dp(50)
+							width: dp(30)
 							active:app.update
-							on_active: app.settings.writeSettings("update","False");app.theme("Light") if app.update2() is True else app.settings.writeSettings("update","True");app.theme("Dark")
+							on_active: app.update_b()
 					MDCard:
 						radius:70
 						padding: 16
@@ -802,4 +817,4 @@ MDScreen:
 				theme_text_color:"Hint" 
 				font_name:"assets/Poppins-Regular.ttf"
 				font_size:"15sp"
-					
+				

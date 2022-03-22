@@ -28,6 +28,7 @@ from kivy.utils import get_color_from_hex
 from kivy.animation import Animation
 from kivy.uix.modalview import ModalView
 from kivy.uix.carousel import Carousel
+import kivymd_extensions.akivymd
 from kivymd.uix.expansionpanel import *
 from kivymd.uix.datatables import MDDataTable
 from kivy.uix.anchorlayout import AnchorLayout
@@ -142,7 +143,7 @@ MDLabel:
 		elevation=10,
 		halign="center",
 		size_hint=(None,None),
-		size= (y, "200dp")
+		size= (y-y//5, "200dp")
 		)
 		card.add_widget(FitImage(source='assets/no-internet.png'))
 		screen_manager.get_screen("Mscreen").ids.fu.add_widget(card)	
@@ -310,11 +311,9 @@ class SRAPS_APP(MDApp):
 		return get_color_from_hex(color)
 
 	def build(self):
-		self.theme_cls.primary_palette = "Blue"
+		self.theme_cls.primary_palette = settings.getSettings()["primary"]
+		self.theme_cls.accent_palette = settings.getSettings()["accent"]		
 
-		self.theme_cls.accent_palette = "Yellow"
-		
-		print (self.theme_cls.primary_palette)
 		screen_manager.add_widget(Builder.load_file('main.kv'))
 		screen_manager.current = "Mscreen"
 		return screen_manager
@@ -327,8 +326,10 @@ class SRAPS_APP(MDApp):
 		_thread.start_new_thread(self.start,())
 	
 	def show_theme_picker(self):
-  	  theme_dialog = MDThemePicker()
-  	  theme_dialog.open()
+		a = lambda self : print(self.theme_cls.accent_palette)
+		theme_dialog = MDThemePicker(on_close=a)
+		theme_dialog.open()
+  	  
 	def theme(self,theme):
 		if theme == "Dark":
 			theme1 = self.theme_cls.primary_dark
@@ -339,5 +340,12 @@ class SRAPS_APP(MDApp):
 		a.t2.md_bg_color=theme1
 		a.t3.md_bg_color=theme1
 		a.t4.md_bg_color=theme1
+	def update_b(self):
+		if screen_manager.get_screen("Mscreen").ids.hi.active is True:
+			self.settings.writeSettings("update","True")
+			self.theme("Dark") 
+		else:
+			self.settings.writeSettings("update","False")
+			self.theme("Light")
 
 SRAPS_APP().run()
