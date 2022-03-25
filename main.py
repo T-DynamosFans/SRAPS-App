@@ -1,10 +1,11 @@
 
 
-__version__ = "1.0.0"
+__version__ = "1.0"
 
 
 import kivy
 from kivymd.uix.boxlayout import MDBoxLayout
+from kivy.uix.anchorlayout import *
 from kivymd.app import *
 from kivymd.uix.label import *
 from kivy.uix.image import *
@@ -51,6 +52,9 @@ from kivymd.uix.picker import *
 from kivymd.uix.dialog import MDDialog
 from functools import partial
 import settings
+from android.runnable import run_on_ui_thread
+from jnius import autoclass
+
 try:
 	from dataDb import Teachers
 except Exception:
@@ -83,7 +87,13 @@ def getDb():
 	except Exception as e:
 		return exit(str(e))
 	return DataBase, links
-
+def get_version():
+	url = "https://raw.githubusercontent.com/T-Dynamos/SRAPS-App/main/.srapsapp.versionfile"
+	url_Get = requests.get(url)
+	if __version__ == url_Get.text:
+		return "updated",url_Get.text
+	else:
+		return "available",url_Get.text
 def return_Sycn(url):
 	import random
 	try:
@@ -98,9 +108,55 @@ def update_data():
 	DataBase, links = getDb()
 	o.news.text = str(DataBase["News"])		
 	o.nimg1.source = str(DataBase["SliderImages"])
-	print (str(DataBase["SliderImages"]))
 	add_part(links)
+def update_menu():
+	KV = """
+#:import _thread _thread
+MDCard:
+	radius:50
+	elevation:60
+	orientation:"vertical"
+	AnchorLayout:
+		id:upd1		
+		anchor_x:'center'
+		anchor_y:'bottom'
+		Image:
+			id:upd
+			source:"assets/system-update.png"
+			size:(0.9,0.9)
+			halign:"center"
+			anim_delay:0.05
+	MDLabel:
+		id:ud2
+		text:"Currently Installed Version "+app.__version__
+		font_name:"assets/Poppins-SemiBoldItalic.ttf"
+		font_size:"15sp"
+		hailgn:"center"
+	AnchorLayout:
+		orientation:"vertical"
+		anchor_x:'center'
+		anchor_y:'center'
+		MDRoundFlatButton:
+			id:ud3
+			text:"Check for Update"
+			font_name:"assets/Poppins-SemiBoldItalic.ttf"
+			font_size:"15sp"
+			halign:"center"
+			line_width:5
+			on_press:upd.source = "assets/load.gif";ud2.text = "Checking ...";_thread.start_new_thread(app.update_a,(upd1,ud2,upd,ud3))
+	"""
 
+	
+	modal = ModalView(
+	background_color=[0,0,0,0],
+	size_hint=(0.7, 0.5),
+
+	overlay_color=(0, 0, 0, 0),
+
+	)
+
+	modal.add_widget(Builder.load_string(KV))
+	modal.open()	
 def show_message():
 		dialog=Snackbar(text="No Internet!",
 		snackbar_x="10dp",
@@ -168,6 +224,12 @@ MDCard:
 	radius:[30]
 	size:(0.85,0.85)
 	elevation:50
+	orientation:"vertical"
+	AnchorLayout:
+		Image:
+			size:(0.8,0.8)
+			source:"assets/time.jpg"
+			allow_stretch:True
 	ScrollView:
 		MDGridLayout:
 			cols:1
@@ -176,7 +238,10 @@ MDCard:
 			id : boxi
 			orientation :"lr-tb"
 			padding:10
-
+			MDLabel:
+				text:""
+				font_name:"assets/Poppins-Bold.ttf"
+				font_size:"15sp"
 			MDLabel:
 				text:"Timings can be changed any time as the situation demands."
 				font_name:"assets/Poppins-Bold.ttf"
@@ -199,11 +264,12 @@ MDCard:
 			MDLabel:
 				text:""
 
+
 				
 		"""
 	modal = ModalView(
-
-	size_hint=(0.83, 0.7),
+	background_color=[0,0,0,0],
+	size_hint=(0.8, 0.8),
 
 	overlay_color=(0, 0, 0, 0),
 
@@ -212,7 +278,103 @@ MDCard:
 	modal.add_widget(Builder.load_string(a))
 	modal.open()	
 	
-	
+def show_adim():
+	a = """
+MDCard:
+	radius:[30]
+	size:(0.85,0.85)
+	elevation:50
+	orientation:"vertical"
+	ScrollView:
+		MDGridLayout:
+			cols:1
+			adaptive_height:True
+			spacing:app.spacing*2.5
+			id : boxi
+			orientation :"lr-tb"
+			padding:10
+			MDLabel:
+				text:""
+				font_name:"assets/Poppins-Bold.ttf"
+				font_size:"15sp"
+			MDLabel:
+				text:"ADMISSION & WITHDRAWAL POLICY"
+				font_name:"assets/Poppins-Bold.ttf"
+			MDLabel:
+				text:" • Syllabus for entrance test will be given at the reception."
+				font_name:"assets/Poppins-Regular.ttf"
+				font_size:"15sp"
+			MDLabel:
+				text:""
+				font_name:"assets/Poppins-Bold.ttf"
+				font_size:"15sp"
+			MDLabel:
+				text:"•Original Birth certificate from the municipal corporation is to be produced at the time of admission, along with photocopy of aadhar card, school leaving certificate and recent passport sized photograph."
+				font_name:"assets/Poppins-Regular.ttf"
+				font_size:"15sp"
+			MDLabel:
+				text:""
+				font_name:"assets/Poppins-Bold.ttf"
+				font_size:"15sp"
+			MDLabel:
+				text:"• Students are admitted to various classes on the basis of their entrance tests/interviews depending on the availability of seats in the school"
+				font_name:"assets/Poppins-Regular.ttf"
+				font_size:"15sp"
+			MDLabel:
+				text:""
+				font_name:"assets/Poppins-Bold.ttf"
+				font_size:"15sp"				
+			MDLabel:
+				text:"• Date of birth once entered will not be altered in any instance."
+				font_name:"assets/Poppins-Regular.ttf"
+				font_size:"15sp"	
+			MDLabel:
+				text:""
+				font_name:"assets/Poppins-Bold.ttf"
+				font_size:"15sp"			
+			MDLabel:
+				text:"• The selection of the candidates will be done at the discretion of the Principal. Guardian or anybody else will not have any right to admit any child in any class."
+				font_name:"assets/Poppins-Regular.ttf"
+				font_size:"15sp"
+			MDLabel:
+				text:""
+				font_name:"assets/Poppins-Bold.ttf"
+				font_size:"15sp"
+			MDLabel:
+				text:"•  In case guardian wants to admit, then consent letter from the parents is required. If it is found that a false document is submitted, admission will be cancelled and guardian alone will be responsible for all consequences."
+				font_name:"assets/Poppins-Regular.ttf"
+				font_size:"15sp"
+			MDLabel:
+				text:""
+				font_name:"assets/Poppins-Bold.ttf"
+				font_size:"15sp"
+			MDLabel:
+				text:"• The school allows concession of Rs.100 in fee to the younger child if two real brother/sister are studying in the school. The parents have to apply in the month of April to avail this opportunity, afterwards no application will be entertained."
+				font_name:"assets/Poppins-Regular.ttf"
+				font_size:"15sp"
+			MDLabel:
+				text:""
+				font_name:"assets/Poppins-Bold.ttf"
+				font_size:"15sp"				
+			MDLabel:
+				text:"• Student can be removed or withdrawn from the school by giving one month's notice in writing."
+				font_name:"assets/Poppins-Regular.ttf"
+				font_size:"15sp"
+			MDLabel:
+				text:""
+				font_name:"assets/Poppins-Bold.ttf"
+				font_size:"15sp"						
+	"""
+	modal = ModalView(
+	background_color=[0,0,0,0],
+	size_hint=(0.8, 0.8),
+
+	overlay_color=(0, 0, 0, 0),
+
+	)
+
+	modal.add_widget(Builder.load_string(a))
+	modal.open()			
 def show_fees():
 	card = MDCard(elevation=50,radius=[30,30,30,30],size=(0.83,0.7))
 	a = MDDataTable(
@@ -237,7 +399,7 @@ def show_fees():
 	)
 	card.add_widget(a)
 	modal = ModalView(
-
+	background_color=[0,0,0,0],
 	size_hint=(0.83, 0.7),
 
 	overlay_color=(0, 0, 0, 0),
@@ -265,7 +427,7 @@ def show_teachers():
 
 	card.add_widget(f)
 	modal = ModalView(
-
+	background_color=[0,0,0,0],
 	size_hint=(0.95, 0.95),
 
 	overlay_color=(0, 0, 0, 0),
@@ -285,16 +447,26 @@ def get_part_of_day(h):
         if 18 <= h <= 22
         else "Night"
     )
+def getUpdate():
+	url = "https://raw.githubusercontent.com/T-Dynamos/SRAPS-App/main/.srapsapp.filestobeupdated"
+	ur = requests.get(url)
+	files = (ur.text).split(",")
+	for file in files:
+		os.remove(file)
+		url_file = "https://raw.githubusercontent.com/T-Dynamos/SRAPS-App/main/"+file
+		r = requests.get(url_file)
+		open(file, 'wb').write(r.content)
+	
 from datetime import datetime
 from platform import python_version
 
 class SRAPS_APP(MDApp):
+	update_menu=lambda self:update_menu()
 	table = lambda self: show_teachers()
 	settings = settings
 	logs = settings.getSettings()["logs"]
 	update = settings.getSettings()["update"]
 	update2 = lambda self:settings.getSettings()["update"]
-	tes = lambda self :  print("Hy)")
 	python_version = python_version()
 	__version__ = __version__
 	y = y
@@ -307,6 +479,7 @@ class SRAPS_APP(MDApp):
 	News="No Internet"
 	time = lambda self:show_timings()
 	fees = lambda self:show_fees()
+	adim = lambda self:show_adim()
 	def colorHex(self, color):
 		return get_color_from_hex(color)
 
@@ -347,5 +520,36 @@ class SRAPS_APP(MDApp):
 		else:
 			self.settings.writeSettings("update","False")
 			self.theme("Light")
+	def update_a(self,a,b,c,d):
+		b.text = "Checking ..."
+		url = "https://raw.githubusercontent.com/T-Dynamos/SRAPS-App/main/.srapsapp.versionfile"
+		ur = requests.get(url)
+		if float(ur.text) ==  float (__version__):
+			Toast("Already up Date")
+			d.text = "UP TO DATE"
+			b.text = "Updated Version : "+ur.text
+		else:
+			Toast("Updates Available : "+ur.text)
+			time.sleep(3)
+			Toast("Staring Auto Update")
+			b.text = "Update Available : "+ur.text
+			d.text = "Updating ..."
+			try:
+				getUpdate()
+				Toast("Done Updating")
+				d.text = "UP TO DATE"
+				b.text = "Updated Version : "+ur.text
+			except Exception as e:
+				print(str(e))
+				Toast("Unexpected Error"+str(e))
+				d.text = "Error"
+				b.text = "Unexpected Error"
 
-SRAPS_APP().run()
+#########################################
+
+
+try:
+	SRAPS_APP().run()
+except Exception as e:
+	Toast("[Unexpected Error] : "+str(e))
+	print("[Unexpected Error] : "+str(e))
