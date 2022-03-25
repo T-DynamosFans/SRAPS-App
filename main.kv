@@ -14,26 +14,31 @@
 		line_color:0,0,0,1
 		line_width:20
 		md_bg_color:app.colorHex("#FFEFE6")
+		
+
 		FitImage:
 			source:root.img
 			radius:[30,10]
 		MDBoxLayout:
 			orientation:"vertical"
 			MDLabel:
-				#pos_hint:{"center_x":0.5,"centre_y":0.10}
 				text:root.text
 				halign:"center"
 				font_name:"assets/Poppins-Bold.ttf"
 				font_size:"25sp"
 
-			MDRoundFlatButton:
-				text:"Read More"
-				text_color: 1, 0, 0, 1
-				halign:"center"					
-				line_width:5   		
-    			line_color: 1, 0,0 , 1
-    			size:(self.width,"50dp")
-    			on_press:webbrowser.open(root.link)
+			AnchorLayout:
+				orientation:"vertical"
+				anchor_x:'center'
+				anchor_y:'center'
+				MDRoundFlatButton:
+					text:"Read More"
+					text_color: 1, 0, 0, 1
+					halign:"center"					
+					line_width:5   		
+    				line_color: 1, 0,0 , 1
+    				size:(self.width,"30dp")
+    				on_press:webbrowser.open(root.link)
 <FitCard2@MDCard>
 	text:""
 	image:""
@@ -554,7 +559,187 @@ MDScreen:
 							
 							text:"Music & Orchestra"
 							
-							link:"http://www.shriramashramps.org/music"								
+							link:"http://www.shriramashramps.org/music"	
+						MDLabel:
+							text:'                                        \n\n\n'
+							font_name:"assets/Poppins-Bold.ttf"
+							font_size:'20sp'
+
+	
+						MDLabel:
+							text:'                                        \n\n\n'
+							font_name:"assets/Poppins-Bold.ttf"
+							font_size:'20sp'
+						MDLabel:
+							text:'                                        \n\n\n'
+							font_name:"assets/Poppins-Bold.ttf"
+							font_size:'20sp'
+
+	
+						MDLabel:
+							text:'                                        \n\n\n'
+							font_name:"assets/Poppins-Bold.ttf"
+							font_size:'20sp'
+						MDLabel:
+							text:'                                        \n\n\n'
+							font_name:"assets/Poppins-Bold.ttf"
+							font_size:'20sp'
+
+	
+						MDLabel:
+							text:'                                        \n\n\n'
+							font_name:"assets/Poppins-Bold.ttf"
+							font_size:'20sp'	
+						FitImgCard:
+							img:"assets/sports-2.jpg"
+							
+							text:"Sports & Games"
+							
+							link:"http://www.shriramashramps.org/sports"
+						MDLabel:
+							text:'                                        \n\n\n'
+							font_name:"assets/Poppins-Bold.ttf"
+							font_size:'20sp'
+
+	
+						MDLabel:
+							text:'                                        \n\n\n'
+							font_name:"assets/Poppins-Bold.ttf"
+							font_size:'20sp'
+						MDLabel:
+							text:'                                        \n\n\n'
+							font_name:"assets/Poppins-Bold.ttf"
+							font_size:'20sp'
+
+	
+						MDLabel:
+							text:'                                        \n\n\n'
+							font_name:"assets/Poppins-Bold.ttf"
+							font_size:'20sp'
+						MDLabel:
+							text:'                                        \n\n\n'
+							font_name:"assets/Poppins-Bold.ttf"
+							font_size:'20sp'
+
+	
+						MDLabel:
+							text:'                                        \n\n\n'
+							font_name:"assets/Poppins-Bold.ttf"
+							font_size:'20sp'	
+						FitImgCard:
+							img:"assets/sciencelab.jpg"
+							
+							text:"Science Lab"
+							
+							link:"http://www.shriramashramps.org/sciencelab"
+						MDLabel:
+							text:'                                        \n\n\n'
+							font_name:"assets/Poppins-Bold.ttf"
+							font_size:'20sp'
+
+	
+						MDLabel:
+							text:'                                        \n\n\n'
+							font_name:"assets/Poppins-Bold.ttf"
+							font_size:'20sp'
+						MDLabel:
+							text:'                                        \n\n\n'
+							font_name:"assets/Poppins-Bold.ttf"
+							font_size:'20sp'
+
+	
+						MDLabel:
+							text:'                                        \n\n\n'
+							font_name:"assets/Poppins-Bold.ttf"
+							font_size:'20sp'
+						MDLabel:
+							text:'                                        \n\n\n'
+							font_name:"assets/Poppins-Bold.ttf"
+							font_size:'20sp'
+
+	
+						MDLabel:
+							text:'                                        \n\n\n'
+							font_name:"assets/Poppins-Bold.ttf"
+							font_size:'20sp'	
+						FitImgCard:
+							img:"assets/garden.jpg"
+							
+							text:"Garden"
+							
+							link:"http://www.shriramashramps.org/garden"
+						MDLabel:
+							text:'                                        \n\n\n'
+							font_name:"assets/Poppins-Bold.ttf"
+							font_size:'20sp'
+
+	
+						MDLabel:
+							text:'                                        \n\n\n'
+							font_name:"assets/Poppins-Bold.ttf"
+							font_size:'20sp'
+						MDLabel:
+							text:'                                        \n\n\n'
+							font_name:"assets/Poppins-Bold.ttf"
+							font_size:'20sp'
+
+	
+						MDLabel:
+							text:'                                        \n\n\n'
+							font_name:"assets/Poppins-Bold.ttf"
+							font_size:'20sp'
+						MDLabel:
+							text:'                                        \n\n\n'
+							font_name:"assets/Poppins-Bold.ttf"
+							font_size:'20sp'
+
+	
+						MDLabel:
+							text:'                                        \n\n\n'
+							font_name:"assets/Poppins-Bold.ttf"
+							font_size:'20sp'	
+						FitImgCard:
+							img:"assets/lib-1.jpg"
+							
+							text:"Library"
+							
+							link:"http://www.shriramashramps.org/library"	
+						MDLabel:
+							text:'                                        \n\n\n'
+							font_name:"assets/Poppins-Bold.ttf"
+							font_size:'20sp'
+
+	
+						MDLabel:
+							text:'                                        \n\n\n'
+							font_name:"assets/Poppins-Bold.ttf"
+							font_size:'20sp'
+						MDLabel:
+							text:'                                        \n\n\n'
+							font_name:"assets/Poppins-Bold.ttf"
+							font_size:'20sp'
+
+	
+						MDLabel:
+							text:'                                        \n\n\n'
+							font_name:"assets/Poppins-Bold.ttf"
+							font_size:'20sp'
+						MDLabel:
+							text:'                                        \n\n\n'
+							font_name:"assets/Poppins-Bold.ttf"
+							font_size:'20sp'
+
+	
+						MDLabel:
+							text:'                                        \n\n\n'
+							font_name:"assets/Poppins-Bold.ttf"
+							font_size:'20sp'	
+						FitImgCard:
+							img:"assets/medical-1.jpg"
+							
+							text:"Medical"
+							
+							link:"http://www.shriramashramps.org/medical"						
 			Image:
 				source : "assets/logo.png"
 				pos_hint : {"center_x":0.5,"center_y":0.83}
@@ -671,7 +856,7 @@ MDScreen:
 				text_color:app.theme_cls.accent_color
 				line_color:app.theme_cls.accent_color				
 				font_size : "20sp"
-				on_press : app.table()
+				on_press : app.adim()
 				size_hint_x : 0.7
 				size_hint_y : 0.08
 				line_width :3						
@@ -701,7 +886,7 @@ MDScreen:
 				text_color:app.theme_cls.accent_color
 				line_color:app.theme_cls.accent_color				
 				font_size : "20sp"
-				on_press : app.tes()
+				on_press : app.res()
 				size_hint_x : 0.7
 				size_hint_y : 0.08
 				line_width :3
@@ -810,7 +995,26 @@ MDScreen:
 							font_size:"15sp"
 						MDIconButton:
 							icon:"chevron-right"
-							on_press:app.show_theme_picker()																					
+							on_press:app.show_theme_picker()
+					MDCard:
+						radius:70
+						padding: 16
+						size_hint: None, None
+						size: app.y, "50dp"
+						elevation:0
+						ripple_behavior:True
+						on_press:app.update_menu()					
+						style:'elevated'
+						md_bg_color:app.colorHex("#EEF3FB")
+						MDLabel:
+							text:"Check For Update"
+							font_name:"assets/Poppins-Regular.ttf"
+							font_size:"15sp"
+						MDIconButton:
+							icon:"chevron-right"
+							on_press:app.update_menu()													
+																												
+																																																																						
 			MDLabel:
 				pos_hint:{"center_x":0.5,"center_y":0.10}
 				text:" Application v"+app.__version__+" Running on Python v"+app.python_version
